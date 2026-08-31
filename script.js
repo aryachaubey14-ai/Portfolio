@@ -2,32 +2,37 @@ const certificatesConfig = {
   deloitte: {
     title: "Data Analytics Job Simulation",
     issuer: "Deloitte · Forage",
-    image: "certificates/deloitte.png"
+    image: "deloitte-data-analytics.png"
   },
+
   tata: {
     title: "GenAI Powered Data Analytics Job Simulation",
     issuer: "Tata · Forage",
-    image: "certificates/tata.png"
+    image: "tata-genai-data-analytics.png"
   },
+
   sqlAdvanced: {
     title: "SQL Advanced Certificate",
     issuer: "HackerRank",
-    image: "certificates/sql-advanced.png"
+    image: "sql-advanced.png"
   },
+
   sqlBasic: {
     title: "SQL Basic Certificate",
     issuer: "HackerRank",
-    image: "certificates/sql-basic.png"
+    image: "sql-basic.png"
   },
+
   generativeAI: {
     title: "Generative AI Foundations",
     issuer: "upGrad / Microsoft",
-    image: "certificates/generative-ai.png"
+    image: "generative-ai-foundations.png"
   },
+
   powerBI: {
     title: "Power BI for Beginners",
     issuer: "Simplilearn / Microsoft",
-    image: "certificates/power-bi.png"
+    image: "power-bi-beginners.png"
   }
 };
 
