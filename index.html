@@ -1,1225 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Arya Chaubey — B.Tech CSE student specialising in AI & Data Analytics.">
-
-    <title>Arya Chaubey | AI & Data Analytics</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Arya Chaubey - B.Tech CSE Student specialising in AI & Data Analytics." />
+  <title>Arya Chaubey | Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- Animated background -->
-    <div id="particles"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <!-- Scroll progress -->
-    <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo" aria-label="Home">
+        <span class="logo-accent">A</span>C<span class="dot">.</span>
+      </a>
 
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="nav-link active">HOME</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#skills" class="nav-link">SKILLS</a>
+        <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#education" class="nav-link">EDUCATION</a>
+        <a href="#training" class="nav-link">TRAINING</a>
+        <a href="#certificates" class="nav-link">CERTIFICATES</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </nav>
+    </div>
+  </header>
 
-    <header class="navbar">
+  <main>
+    <section class="hero-section" id="home">
+      <div class="hero-content">
+        <div class="hero-tag reveal">
+          <span class="mono-badge">AI × DATA × TECHNOLOGY</span>
+        </div>
+        <p class="hero-greeting reveal">Hello, I'm</p>
+        <h1 class="hero-name reveal">ARYA CHAUBEY</h1>
+        <p class="hero-subtitle reveal">B.Tech CSE Student specialising in AI & Data Analytics</p>
+        <p class="hero-desc reveal">
+          Exploring data, building practical solutions, and transforming insights into meaningful outcomes.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#projects" class="btn btn-primary">VIEW MY WORK</a>
+          <a href="#contact" class="btn btn-secondary">LET'S CONNECT</a>
+        </div>
+      </div>
+    </section>
 
-        <a href="#home" class="logo">
-            AC<span>.</span>
-        </a>
-
-        <button class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav id="navMenu">
-
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#education" class="nav-link">Education</a>
-            <a href="#training" class="nav-link">Training</a>
-            <a href="#certificates" class="nav-link">Certificates</a>
-            <a href="#contact" class="nav-link">Contact</a>
-
-        </nav>
-
-    </header>
-
-
-    <main>
-
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section id="home" class="hero section">
-
-            <div class="hero-content">
-
-                <p class="hello reveal">
-                    Hello, I'm
-                </p>
-
-                <h1 class="hero-name reveal">
-                    Arya
-                    <span>Chaubey</span>
-                </h1>
-
-                <div class="hero-info reveal">
-
-                    <h2>
-                        B.Tech CSE Student specialising in
-                        <strong>AI & Data Analytics</strong>
-                    </h2>
-
-                    <p>
-                        Exploring data, building practical projects,
-                        and turning insights into meaningful solutions.
-                    </p>
-
-                </div>
-
-                <div class="hero-buttons reveal">
-
-                    <a href="#projects" class="button dark-button">
-                        View My Work <span>↗</span>
-                    </a>
-
-                    <a href="#contact" class="button light-button">
-                        Let's Connect <span>→</span>
-                    </a>
-
-                </div>
-
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">01 // OVERVIEW</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-grid reveal">
+          <div class="about-text">
+            <p>
+              Originally from Varanasi, Uttar Pradesh, I am focused on software development and data-driven problem solving. My academic journey centers on understanding core computer science principles and applying analytics to build functional, efficient tools.
+            </p>
+            <p>
+              I actively engage in continuous learning and experimentation, bridging foundational programming with modern data techniques to translate raw concepts into structured, reliable implementations.
+            </p>
+          </div>
+          <div class="about-meta">
+            <div class="meta-box">
+              <span class="meta-label">FOCUS AREAS</span>
+              <span class="meta-value">Computer Science, AI & Data Analytics</span>
             </div>
-
-
-            <div class="hero-side reveal">
-
-                <div class="hero-year">
-                    2025<br>
-                    <span>—</span><br>
-                    2029
-                </div>
-
-                <div class="hero-caption">
-                    COMPUTER SCIENCE<br>
-                    ×<br>
-                    DATA
-                </div>
-
+            <div class="meta-box">
+              <span class="meta-label">APPROACH</span>
+              <span class="meta-value">Structured Querying, Analytics & Logic</span>
             </div>
-
-
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <div></div>
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section id="about" class="section about">
-
-            <div class="section-index">
-                01
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    A LITTLE ABOUT ME
-                </p>
-
-                <h2>
-                    About<br>
-                    <em>Me.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="about-content reveal">
-
-                <p class="about-large">
-                    A Computer Science student with a growing interest
-                    in data, technology and analytical problem-solving.
-                </p>
-
-                <div class="about-columns">
-
-                    <p>
-                        Based in Varanasi, Uttar Pradesh, I am pursuing
-                        a B.Tech in Computer Science & Engineering at
-                        Lovely Professional University, specialising
-                        in AI & Data Analytics.
-                    </p>
-
-                    <p>
-                        I enjoy working with data, exploring visualisation
-                        tools and building practical projects that help
-                        turn ideas into working solutions.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             SKILLS
-        ========================== -->
-
-        <section id="skills" class="section skills">
-
-            <div class="section-index">
-                02
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    TOOLS & TECHNOLOGIES
-                </p>
-
-                <h2>
-                    Skills<br>
-                    <em>& Tools.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="skills-container reveal">
-
-                <div class="skills-track">
-
-                    <div class="skill"
-                        data-description="Data analysis and programming">
-                        Python
-                    </div>
-
-                    <div class="skill"
-                        data-description="Database querying and data extraction">
-                        SQL
-                    </div>
-
-                    <div class="skill"
-                        data-description="Interactive dashboards and reporting">
-                        Power BI
-                    </div>
-
-                    <div class="skill"
-                        data-description="Data visualisation and dashboard creation">
-                        Tableau
-                    </div>
-
-                    <div class="skill"
-                        data-description="Data analysis and organisation">
-                        Excel
-                    </div>
-
-                    <div class="skill"
-                        data-description="Data visualisation in Python">
-                        Matplotlib
-                    </div>
-
-                    <div class="skill"
-                        data-description="Frontend development">
-                        HTML & CSS
-                    </div>
-
-                    <div class="skill"
-                        data-description="Programming fundamentals">
-                        C
-                    </div>
-
-                </div>
-
-
-                <div class="skill-hover-text" id="skillDescription">
-                    Hover over a skill
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section id="projects" class="section projects">
-
-            <div class="section-index">
-                03
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    SELECTED WORK
-                </p>
-
-                <h2>
-                    Projects<br>
-                    <em>& Experiments.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="projects-list">
-
-
-                <!-- PROJECT 01 -->
-
-                <article class="project reveal">
-
-                    <div class="project-number">
-                        01
-                    </div>
-
-                    <div class="project-content">
-
-                        <span class="project-type">
-                            DATABASE / SOFTWARE
-                        </span>
-
-                        <h3>
-                            Hospital<br>
-                            <em>Management System</em>
-                        </h3>
-
-                        <p>
-                            A database-focused project designed to
-                            organise and manage hospital-related
-                            information and records.
-                        </p>
-
-                        <div class="project-tags">
-
-                            <span>SQL</span>
-                            <span>DATABASE</span>
-
-                        </div>
-
-                        <a href="https://github.com/aryachaubey14-ai/Hospital-Management-System"
-                            target="_blank"
-                            rel="noopener"
-                            class="project-link">
-
-                            View Project ↗
-
-                        </a>
-
-                    </div>
-
-                    <div class="project-side">
-                        <span>01 / 03</span>
-                        <div class="project-line"></div>
-                    </div>
-
-                </article>
-
-
-
-                <!-- PROJECT 02 -->
-
-                <article class="project reveal">
-
-                    <div class="project-number">
-                        02
-                    </div>
-
-                    <div class="project-content">
-
-                        <span class="project-type">
-                            PYTHON / DATA
-                        </span>
-
-                        <h3>
-                            Expense<br>
-                            <em>Tracker</em>
-                        </h3>
-
-                        <p>
-                            A practical Python project for recording,
-                            organising and managing expense information
-                            in a simple and structured way.
-                        </p>
-
-                        <div class="project-tags">
-
-                            <span>PYTHON</span>
-                            <span>DATA</span>
-
-                        </div>
-
-                        <a href="https://github.com/aryachaubey14-ai/expense-tracker"
-                            target="_blank"
-                            rel="noopener"
-                            class="project-link">
-
-                            View Project ↗
-
-                        </a>
-
-                    </div>
-
-                    <div class="project-side">
-                        <span>02 / 03</span>
-                        <div class="project-line"></div>
-                    </div>
-
-                </article>
-
-
-
-                <!-- PROJECT 03 -->
-
-                <article class="project reveal">
-
-                    <div class="project-number">
-                        03
-                    </div>
-
-                    <div class="project-content">
-
-                        <span class="project-type">
-                            PROGRAMMING / GAME
-                        </span>
-
-                        <h3>
-                            Snake<br>
-                            <em>Game</em>
-                        </h3>
-
-                        <p>
-                            An interactive Snake game created to practise
-                            programming fundamentals, game logic,
-                            user input and problem-solving.
-                        </p>
-
-                        <div class="project-tags">
-
-                            <span>PYTHON</span>
-                            <span>LOGIC</span>
-
-                        </div>
-
-                        <a href="https://github.com/aryachaubey14-ai/Snake-Game"
-                            target="_blank"
-                            rel="noopener"
-                            class="project-link">
-
-                            View Project ↗
-
-                        </a>
-
-                    </div>
-
-                    <div class="project-side">
-                        <span>03 / 03</span>
-                        <div class="project-line"></div>
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             EDUCATION
-        ========================== -->
-
-        <section id="education" class="section education">
-
-            <div class="section-index">
-                04
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    ACADEMIC JOURNEY
-                </p>
-
-                <h2>
-                    Education<br>
-                    <em>& Growth.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="education-list">
-
-
-                <article class="education-item reveal">
-
-                    <div class="education-date">
-                        2025 — 2029
-                    </div>
-
-                    <div class="education-details">
-
-                        <span>
-                            UNDERGRADUATE
-                        </span>
-
-                        <h3>
-                            B.Tech Computer Science
-                            & Engineering
-                        </h3>
-
-                        <p>
-                            Lovely Professional University
-                        </p>
-
-                        <small>
-                            Specialisation — AI & Data Analytics
-                        </small>
-
-                    </div>
-
-                    <div class="score">
-
-                        <small>CGPA</small>
-
-                        <strong>8.67</strong>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="education-item reveal">
-
-                    <div class="education-date">
-                        CLASS XII
-                    </div>
-
-                    <div class="education-details">
-
-                        <span>
-                            SENIOR SECONDARY
-                        </span>
-
-                        <h3>
-                            Nirmala Convent High School
-                        </h3>
-
-                        <p>
-                            Class XII
-                        </p>
-
-                    </div>
-
-                    <div class="score">
-
-                        <small>SCORE</small>
-
-                        <strong>79.2%</strong>
-
-                    </div>
-
-                </article>
-
-
-
-                <article class="education-item reveal">
-
-                    <div class="education-date">
-                        CLASS X
-                    </div>
-
-                    <div class="education-details">
-
-                        <span>
-                            SECONDARY
-                        </span>
-
-                        <h3>
-                            Nirmala Convent High School
-                        </h3>
-
-                        <p>
-                            Class X
-                        </p>
-
-                    </div>
-
-                    <div class="score">
-
-                        <small>SCORE</small>
-
-                        <strong>88.4%</strong>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             VIRTUAL TRAINING
-        ========================== -->
-
-        <section id="training" class="section training">
-
-            <div class="section-index">
-                05
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    PRACTICAL EXPERIENCE
-                </p>
-
-                <h2>
-                    Virtual<br>
-                    <em>Training.</em>
-                </h2>
-
-            </div>
-
-
-            <div class="training-list">
-
-
-                <!-- DELOITTE -->
-
-                <article class="training-card reveal">
-
-                    <div class="training-number">
-                        01
-                    </div>
-
-                    <div class="training-main">
-
-                        <span>
-                            VIRTUAL JOB SIMULATION
-                        </span>
-
-                        <h3>
-                            Data Analytics<br>
-                            <em>Job Simulation</em>
-                        </h3>
-
-                        <p>
-                            Deloitte · Forage
-                        </p>
-
-                    </div>
-
-
-                    <div class="training-learning">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <ul>
-                            <li>Data analysis</li>
-                            <li>Forensic technology</li>
-                            <li>Analytical problem-solving</li>
-                            <li>Business insights</li>
-                        </ul>
-
-                    </div>
-
-
-                    <button class="training-certificate"
-                        data-certificate="deloitte">
-
-                        View Certificate →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- TATA -->
-
-                <article class="training-card reveal">
-
-                    <div class="training-number">
-                        02
-                    </div>
-
-                    <div class="training-main">
-
-                        <span>
-                            VIRTUAL JOB SIMULATION
-                        </span>
-
-                        <h3>
-                            GenAI Powered<br>
-                            <em>Data Analytics</em>
-                        </h3>
-
-                        <p>
-                            Tata · Forage
-                        </p>
-
-                    </div>
-
-
-                    <div class="training-learning">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <ul>
-                            <li>Exploratory data analysis</li>
-                            <li>Risk profiling</li>
-                            <li>Generative AI applications</li>
-                            <li>Business reporting</li>
-                            <li>Data storytelling</li>
-                        </ul>
-
-                    </div>
-
-
-                    <button class="training-certificate"
-                        data-certificate="tata">
-
-                        View Certificate →
-
-                    </button>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CERTIFICATES
-        ========================== -->
-
-        <section id="certificates" class="section certificates">
-
-            <div class="section-index">
-                06
-            </div>
-
-            <div class="section-title">
-
-                <p class="eyebrow">
-                    LEARNING & CREDENTIALS
-                </p>
-
-                <h2>
-                    Certificates<br>
-                    <em>& Learning.</em>
-                </h2>
-
-            </div>
-
-
-            <!-- FILTERS -->
-
-            <div class="certificate-filters">
-
-                <button class="filter active"
-                    data-filter="all">
-                    All
-                </button>
-
-                <button class="filter"
-                    data-filter="data">
-                    Data
-                </button>
-
-                <button class="filter"
-                    data-filter="sql">
-                    SQL
-                </button>
-
-                <button class="filter"
-                    data-filter="ai">
-                    AI
-                </button>
-
-                <button class="filter"
-                    data-filter="visualisation">
-                    Visualisation
-                </button>
-
-            </div>
-
-
-            <div class="certificate-grid">
-
-
-                <!-- 01 -->
-
-                <article class="certificate-card reveal"
-                    data-category="data ai">
-
-                    <span class="certificate-number">
-                        01
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            TATA · FORAGE
-                        </span>
-
-                        <h3>
-                            GenAI Powered Data
-                            Analytics Job Simulation
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            Exploratory analysis · Risk profiling ·
-                            Generative AI · Reporting ·
-                            Data storytelling
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="tata">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- 02 -->
-
-                <article class="certificate-card reveal"
-                    data-category="data">
-
-                    <span class="certificate-number">
-                        02
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            DELOITTE · FORAGE
-                        </span>
-
-                        <h3>
-                            Data Analytics
-                            Job Simulation
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            Data analysis · Forensic technology ·
-                            Problem-solving · Business insights
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="deloitte">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- 03 -->
-
-                <article class="certificate-card reveal"
-                    data-category="sql">
-
-                    <span class="certificate-number">
-                        03
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            HACKERRANK
-                        </span>
-
-                        <h3>
-                            SQL Advanced
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            Advanced queries · Joins ·
-                            Subqueries · Data analysis
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="sql-advanced">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- 04 -->
-
-                <article class="certificate-card reveal"
-                    data-category="sql">
-
-                    <span class="certificate-number">
-                        04
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            HACKERRANK
-                        </span>
-
-                        <h3>
-                            SQL Basic
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            SQL fundamentals · Filtering ·
-                            Sorting · Querying
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="sql-basic">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- 05 -->
-
-                <article class="certificate-card reveal"
-                    data-category="ai">
-
-                    <span class="certificate-number">
-                        05
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            UPGRAD · MICROSOFT
-                        </span>
-
-                        <h3>
-                            Generative AI
-                            Foundations
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            GenAI fundamentals · Prompt engineering ·
-                            AI-powered research
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="generative-ai">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-
-
-                <!-- 06 -->
-
-                <article class="certificate-card reveal"
-                    data-category="visualisation">
-
-                    <span class="certificate-number">
-                        06
-                    </span>
-
-                    <div class="certificate-info">
-
-                        <span>
-                            SIMPLILEARN · MICROSOFT
-                        </span>
-
-                        <h3>
-                            Power BI
-                            for Beginners
-                        </h3>
-
-                    </div>
-
-                    <div class="certificate-hover">
-
-                        <strong>
-                            WHAT I LEARNED
-                        </strong>
-
-                        <p>
-                            Data visualisation · Interactive
-                            dashboards · Data reporting
-                        </p>
-
-                    </div>
-
-                    <button class="view-certificate"
-                        data-certificate="power-bi">
-
-                        View →
-
-                    </button>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section id="contact" class="section contact">
-
-            <div class="section-index">
-                07
-            </div>
-
-            <div class="contact-content">
-
-                <p class="eyebrow">
-                    LET'S TALK
-                </p>
-
-                <h2>
-                    Let's<br>
-                    <em>Connect.</em>
-                </h2>
-
-                <p class="contact-description">
-                    Open to connecting, discussing projects,
-                    and exploring learning opportunities.
-                </p>
-
-
-                <div class="contact-links">
-
-                    <a href="mailto:aryachaubey14@gmail.com">
-
-                        <span>Email</span>
-
-                        <strong>
-                            aryachaubey14@gmail.com
-                        </strong>
-
-                        <b>↗</b>
-
-                    </a>
-
-
-                    <a href="https://www.linkedin.com/in/arya-chaubey-7b66a937a/"
-                        target="_blank"
-                        rel="noopener">
-
-                        <span>LinkedIn</span>
-
-                        <strong>
-                            Connect with me
-                        </strong>
-
-                        <b>↗</b>
-
-                    </a>
-
-
-                    <a href="https://github.com/aryachaubey14-ai"
-                        target="_blank"
-                        rel="noopener">
-
-                        <span>GitHub</span>
-
-                        <strong>
-                            View my projects
-                        </strong>
-
-                        <b>↗</b>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================
-         CERTIFICATE MODAL
-    ========================== -->
-
-    <div class="certificate-modal"
-        id="certificateModal"
-        aria-hidden="true">
-
-        <div class="modal-inner">
-
-            <button class="modal-close"
-                id="modalClose">
-
-                ×
-
-            </button>
-
-            <div class="modal-top">
-
-                <span>
-                    CERTIFICATE
-                </span>
-
-                <a id="fullSizeLink"
-                    href="#"
-                    target="_blank"
-                    rel="noopener">
-
-                    Open Full Size ↗
-
-                </a>
-
-            </div>
-
-
-            <div class="modal-image-wrapper">
-
-                <img id="certificateImage"
-                    src=""
-                    alt="Certificate">
-
-            </div>
-
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">02 // CAPABILITIES</span>
+          <h2 class="section-title">Technical Skills</h2>
+        </div>
+      </div>
+      
+      <div class="skills-marquee-wrapper reveal">
+        <div class="skills-track" id="skills-track">
+          <div class="skill-card">
+            <span class="skill-name">Python</span>
+            <span class="skill-desc">Data analysis & programming</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">SQL</span>
+            <span class="skill-desc">Database querying & data extraction</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">Power BI</span>
+            <span class="skill-desc">Interactive dashboards</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">Tableau</span>
+            <span class="skill-desc">Data visualisation</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">Excel</span>
+            <span class="skill-desc">Data organisation & analysis</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">Matplotlib</span>
+            <span class="skill-desc">Python-based visualisation</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">HTML & CSS</span>
+            <span class="skill-desc">Frontend development</span>
+          </div>
+          <div class="skill-card">
+            <span class="skill-name">C</span>
+            <span class="skill-desc">Programming fundamentals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">03 // SELECTED WORK</span>
+          <h2 class="section-title">Featured Projects</h2>
         </div>
 
+        <div class="projects-list">
+          <article class="project-item reveal">
+            <div class="project-num">01</div>
+            <div class="project-details">
+              <div class="project-meta-top">
+                <span class="project-category">Database / Software</span>
+              </div>
+              <h3 class="project-title">Hospital Management System</h3>
+              <p class="project-desc">
+                A practical database and software project engineered for recording, maintaining, and managing hospital-related information and patient records securely.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">SQL</span>
+                <span class="tag">Database</span>
+              </div>
+            </div>
+            <div class="project-action">
+              <a href="https://github.com/aryachaubey14-ai/Hospital-Management-System" target="_blank" rel="noopener noreferrer" class="btn-project">
+                View on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-item reveal">
+            <div class="project-num">02</div>
+            <div class="project-details">
+              <div class="project-meta-top">
+                <span class="project-category">Python / Data</span>
+              </div>
+              <h3 class="project-title">Expense Tracker</h3>
+              <p class="project-desc">
+                A practical tool designed for recording, categorising, and tracking daily expense information with clear analytical summaries.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Data Analysis</span>
+              </div>
+            </div>
+            <div class="project-action">
+              <a href="https://github.com/aryachaubey14-ai/expense-tracker" target="_blank" rel="noopener noreferrer" class="btn-project">
+                View on GitHub ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project-item reveal">
+            <div class="project-num">03</div>
+            <div class="project-details">
+              <div class="project-meta-top">
+                <span class="project-category">Programming / Game</span>
+              </div>
+              <h3 class="project-title">Snake Game</h3>
+              <p class="project-desc">
+                An interactive project built to explore core algorithmic logic, real-time user input loops, and structural problem-solving.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Logic Design</span>
+              </div>
+            </div>
+            <div class="project-action">
+              <a href="https://github.com/aryachaubey14-ai/Snake-Game" target="_blank" rel="noopener noreferrer" class="btn-project">
+                View on GitHub ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section education-section" id="education">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">04 // ACADEMIC PATH</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2025 – 2029</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">B.Tech Computer Science & Engineering</h3>
+              <p class="timeline-institution">Lovely Professional University</p>
+              <p class="timeline-spec">Specialisation: AI & Data Analytics</p>
+              <div class="timeline-badge">CGPA: 8.67</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">Class XII</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Senior Secondary Education</h3>
+              <p class="timeline-institution">Nirmala Convent High School, Renukoot</p>
+              <div class="timeline-badge">Score: 79.2%</div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">Class X</div>
+            <div class="timeline-content">
+              <h3 class="timeline-title">Secondary Education</h3>
+              <p class="timeline-institution">Nirmala Convent High School, Renukoot</p>
+              <div class="timeline-badge">Score: 88.4%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section training-section" id="training">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">05 // INDUSTRY SIMULATIONS</span>
+          <h2 class="section-title">Virtual Training</h2>
+        </div>
+
+        <div class="training-grid">
+          <div class="training-card reveal" data-cert-key="deloitte">
+            <div class="training-header">
+              <span class="company-badge">DELOITTE</span>
+              <span class="platform-badge">Forage</span>
+            </div>
+            <h3 class="training-title">Data Analytics Job Simulation</h3>
+            <div class="training-learn-preview">
+              <span class="learn-label">Key Focus Areas:</span>
+              <ul class="learn-list">
+                <li>Data analysis & forensic technology</li>
+                <li>Analytical problem-solving & insights</li>
+                <li>Tableau & dashboard-related work</li>
+                <li>Data-driven business conclusions</li>
+              </ul>
+            </div>
+            <button class="btn-cert-modal" data-cert="deloitte">View Certificate</button>
+          </div>
+
+          <div class="training-card reveal" data-cert-key="tata">
+            <div class="training-header">
+              <span class="company-badge">TATA</span>
+              <span class="platform-badge">Forage</span>
+            </div>
+            <h3 class="training-title">GenAI Powered Data Analytics Job Simulation</h3>
+            <div class="training-learn-preview">
+              <span class="learn-label">Key Focus Areas:</span>
+              <ul class="learn-list">
+                <li>Exploratory data analysis & risk profiling</li>
+                <li>Generative AI business applications</li>
+                <li>Data storytelling & structured reporting</li>
+                <li>Business reporting & strategic thinking</li>
+              </ul>
+            </div>
+            <button class="btn-cert-modal" data-cert="tata">View Certificate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section certificates-section" id="certificates">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">06 // CREDENTIALS</span>
+          <h2 class="section-title">Certifications</h2>
+        </div>
+
+        <div class="cert-filters reveal">
+          <button class="filter-btn active" data-filter="all">ALL</button>
+          <button class="filter-btn" data-filter="data">DATA</button>
+          <button class="filter-btn" data-filter="sql">SQL</button>
+          <button class="filter-btn" data-filter="ai">AI</button>
+          <button class="filter-btn" data-filter="visualisation">VISUALISATION</button>
+        </div>
+
+        <div class="certificates-grid reveal" id="certificates-grid">
+          
+          <div class="cert-card" data-category="data visualisation" data-key="deloitte">
+            <div class="cert-card-inner">
+              <span class="cert-num">01</span>
+              <h3 class="cert-title">Data Analytics Job Simulation</h3>
+              <p class="cert-issuer">Deloitte · Forage</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">Forensic data analytics, dashboard reporting, and deriving business conclusions from complex sets.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="deloitte">View Certificate →</button>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category="data ai" data-key="tata">
+            <div class="cert-card-inner">
+              <span class="cert-num">02</span>
+              <h3 class="cert-title">GenAI Powered Data Analytics</h3>
+              <p class="cert-issuer">Tata · Forage</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">EDA techniques, generative AI workflows for analysis, risk profiling, and executive storytelling.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="tata">View Certificate →</button>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category="sql" data-key="sqlAdvanced">
+            <div class="cert-card-inner">
+              <span class="cert-num">03</span>
+              <h3 class="cert-title">SQL Advanced</h3>
+              <p class="cert-issuer">HackerRank</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">Complex joins, subqueries, indexing performance, window functions, and query optimization.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="sqlAdvanced">View Certificate →</button>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category="sql" data-key="sqlBasic">
+            <div class="cert-card-inner">
+              <span class="cert-num">04</span>
+              <h3 class="cert-title">SQL Basic</h3>
+              <p class="cert-issuer">HackerRank</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">Relational database schemas, standard filtering, aggregation queries, and table operations.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="sqlBasic">View Certificate →</button>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category="ai" data-key="generativeAI">
+            <div class="cert-card-inner">
+              <span class="cert-num">05</span>
+              <h3 class="cert-title">Generative AI Foundations</h3>
+              <p class="cert-issuer">upGrad / Microsoft</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">Foundational LLM architectures, prompt framing, multimodal models, and ethical AI deployment.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="generativeAI">View Certificate →</button>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category="visualisation data" data-key="powerBI">
+            <div class="cert-card-inner">
+              <span class="cert-num">06</span>
+              <h3 class="cert-title">Power BI for Beginners</h3>
+              <p class="cert-issuer">Simplilearn / Microsoft</p>
+              <div class="cert-hover-overlay">
+                <span class="hover-heading">WHAT I LEARNED</span>
+                <p class="hover-text">Data loading and transformation, interactive dashboard design, measures, and visual filtering.</p>
+              </div>
+              <button class="cert-view-btn" data-cert="powerBI">View Certificate →</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">07 // REACH OUT</span>
+          <h2 class="section-title">Let's Connect.</h2>
+        </div>
+
+        <div class="contact-box reveal">
+          <p class="contact-subtext">
+            Have a project, idea, or opportunity in mind? Let's connect.
+          </p>
+
+          <div class="contact-links-grid">
+            <a href="mailto:aryachaubey14@gmail.com" class="contact-card">
+              <span class="contact-type">EMAIL</span>
+              <span class="contact-address">aryachaubey14@gmail.com</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/arya-chaubey-7b66a937a/" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <span class="contact-type">LINKEDIN</span>
+              <span class="contact-address">arya-chaubey-7b66a937a ↗</span>
+            </a>
+
+            <a href="https://github.com/aryachaubey14-ai" target="_blank" rel="noopener noreferrer" class="contact-card">
+              <span class="contact-type">GITHUB</span>
+              <span class="contact-address">aryachaubey14-ai ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p class="footer-copy">© 2026 Arya Chaubey &bull; AI &amp; Data Analytics</p>
+      <div class="footer-links">
+        <a href="https://github.com/aryachaubey14-ai" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/arya-chaubey-7b66a937a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </div>
+  </footer>
 
+  <div class="modal-backdrop" id="cert-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close Modal">&times;</button>
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Certificate</h3>
+        <p class="modal-issuer" id="modal-issuer"></p>
+      </div>
+      <div class="modal-body">
+        <div class="modal-img-container" id="modal-img-container">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="modal-full-view" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open Full Size ↗</a>
+      </div>
+    </div>
+  </div>
 
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-        <span>
-            © 2026 Arya Chaubey
-        </span>
-
-        <span>
-            AI & DATA ANALYTICS
-        </span>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
