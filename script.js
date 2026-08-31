@@ -1,454 +1,262 @@
-/* ========================================
-   BACKGROUND SPARKLES
-======================================== */
-
-const particles = document.getElementById("particles");
-
-for (let i = 0; i < 45; i++) {
-
-    const sparkle = document.createElement("span");
-
-    sparkle.classList.add("sparkle");
-
-    sparkle.style.left = Math.random() * 100 + "%";
-
-    sparkle.style.animationDuration =
-        (8 + Math.random() * 15) + "s";
-
-    sparkle.style.animationDelay =
-        (Math.random() * 10) + "s";
-
-    sparkle.style.transform =
-        `scale(${0.5 + Math.random()})`;
-
-    particles.appendChild(sparkle);
-}
-
-
-
-/* ========================================
-   MOBILE NAVIGATION
-======================================== */
-
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-
-menuToggle.addEventListener("click", () => {
-
-    navMenu.classList.toggle("open");
-
-});
-
-
-document.querySelectorAll(".nav-link").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navMenu.classList.remove("open");
-
-    });
-
-});
-
-
-
-/* ========================================
-   SCROLL PROGRESS
-======================================== */
-
-window.addEventListener("scroll", () => {
-
-    const scrollTop =
-        window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        (scrollTop / documentHeight) * 100;
-
-    document.getElementById("scrollProgress")
-        .style.width = progress + "%";
-
-});
-
-
-
-/* ========================================
-   REVEAL ANIMATIONS
-======================================== */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-const revealObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-revealElements.forEach(element => {
-
-    revealObserver.observe(element);
-
-});
-
-
-
-/* ========================================
-   ACTIVE NAVIGATION
-======================================== */
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-const navLinks =
-    document.querySelectorAll(".nav-link");
-
-
-const sectionObserver =
-    new IntersectionObserver(
-
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    navLinks.forEach(link => {
-
-                        link.classList.remove("active");
-
-                    });
-
-                    const activeLink =
-                        document.querySelector(
-                            `.nav-link[href="#${entry.target.id}"]`
-                        );
-
-                    if (activeLink) {
-
-                        activeLink.classList.add("active");
-
-                    }
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.35
-        }
-
-    );
-
-
-sections.forEach(section => {
-
-    sectionObserver.observe(section);
-
-});
-
-
-
-/* ========================================
-   SKILLS HOVER
-======================================== */
-
-const skills =
-    document.querySelectorAll(".skill");
-
-const skillDescription =
-    document.getElementById("skillDescription");
-
-
-skills.forEach(skill => {
-
-    skill.addEventListener("mouseenter", () => {
-
-        skillDescription.textContent =
-            skill.dataset.description;
-
-    });
-
-});
-
-
-
-/* ========================================
-   PROJECT / GENERAL HOVER
-======================================== */
-
-
-/* ========================================
-   CERTIFICATE DATA
-======================================== */
-
-const certificates = {
-
-    "deloitte":
-        "certificates/deloitte-data-analytics.png",
-
-    "tata":
-        "certificates/tata-genai-data-analytics.png",
-
-    "sql-advanced":
-        "certificates/sql-advanced.png",
-
-    "sql-basic":
-        "certificates/sql-basic.png",
-
-    "generative-ai":
-        "certificates/generative-ai-foundations.png",
-
-    "power-bi":
-        "certificates/power-bi-beginners.png"
-
+/* ==========================================================================
+   CERTIFICATES CONFIGURATION
+   Easily customize image paths here if needed.
+   ========================================================================== */
+const certificatesConfig = {
+  deloitte: {
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte · Forage",
+    image: "certificates/deloitte.png"
+  },
+  tata: {
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "Tata · Forage",
+    image: "certificates/tata.png"
+  },
+  sqlAdvanced: {
+    title: "SQL Advanced Certificate",
+    issuer: "HackerRank",
+    image: "certificates/sql-advanced.png"
+  },
+  sqlBasic: {
+    title: "SQL Basic Certificate",
+    issuer: "HackerRank",
+    image: "certificates/sql-basic.png"
+  },
+  generativeAI: {
+    title: "Generative AI Foundations",
+    issuer: "upGrad / Microsoft",
+    image: "certificates/generative-ai.png"
+  },
+  powerBI: {
+    title: "Power BI for Beginners",
+    issuer: "Simplilearn / Microsoft",
+    image: "certificates/power-bi.png"
+  }
 };
 
+/* ==========================================================================
+   SUBTLE PARTICLE BACKGROUND CANVAS
+   ========================================================================== */
+(function initParticles() {
+  const canvas = document.getElementById("particle-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
 
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
 
-/* ========================================
-   CERTIFICATE MODAL
-======================================== */
+  const particles = [];
+  const particleCount = Math.min(Math.floor(width * 0.035), 45);
 
-const modal =
-    document.getElementById("certificateModal");
-
-const modalClose =
-    document.getElementById("modalClose");
-
-const certificateImage =
-    document.getElementById("certificateImage");
-
-const fullSizeLink =
-    document.getElementById("fullSizeLink");
-
-
-function openCertificate(type) {
-
-    const imagePath =
-        certificates[type];
-
-    if (!imagePath) {
-
-        alert("Certificate file not found.");
-
-        return;
-
+  class Particle {
+    constructor() {
+      this.reset(true);
     }
+    reset(initial = false) {
+      this.x = Math.random() * width;
+      this.y = initial ? Math.random() * height : height + 10;
+      this.size = Math.random() * 1.5 + 0.5;
+      this.speedY = Math.random() * 0.4 + 0.15;
+      this.speedX = (Math.random() - 0.5) * 0.2;
+      this.opacity = Math.random() * 0.4 + 0.1;
+    }
+    update() {
+      this.y -= this.speedY;
+      this.x += this.speedX;
+      if (this.y < -10 || this.x < -10 || this.x > width + 10) {
+        this.reset();
+      }
+    }
+    draw() {
+      ctx.fillStyle = `rgba(0, 210, 255, ${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
 
-    certificateImage.src =
-        imagePath;
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle());
+  }
 
-    fullSizeLink.href =
-        imagePath;
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+    }
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+
+  animate();
+})();
+
+/* ==========================================================================
+   DUPLICATE MARQUEE CONTENT FOR SMOOTH SEAMLESS SCROLL
+   ========================================================================== */
+(function initMarquee() {
+  const track = document.getElementById("skills-track");
+  if (track) {
+    track.innerHTML += track.innerHTML;
+  }
+})();
+
+/* ==========================================================================
+   NAVIGATION, ACTIVE SECTION & MOBILE MENU
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
+  const navItems = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll("section[id]");
+
+  // Mobile menu toggle
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Close menu on link click
+    navItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", false);
+      });
+    });
+  }
+
+  // Active section indicator on scroll
+  window.addEventListener("scroll", () => {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach((current) => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 120;
+      const sectionId = current.getAttribute("id");
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.getAttribute("href") === `#${sectionId}`) {
+            item.classList.add("active");
+          }
+        });
+      }
+    });
+  });
+
+  /* ==========================================================================
+     INTERSECTION OBSERVER FOR SCROLL REVEAL ANIMATIONS
+     ========================================================================== */
+  const revealElements = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  /* ==========================================================================
+     CERTIFICATE FILTERING
+     ========================================================================== */
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const certCards = document.querySelectorAll(".cert-card");
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.getAttribute("data-filter");
+
+      certCards.forEach((card) => {
+        const categories = card.getAttribute("data-category") || "";
+        if (filter === "all" || categories.includes(filter)) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  /* ==========================================================================
+     CERTIFICATE MODAL HANDLER
+     ========================================================================== */
+  const modal = document.getElementById("cert-modal");
+  const modalClose = document.getElementById("modal-close");
+  const modalTitle = document.getElementById("modal-title");
+  const modalIssuer = document.getElementById("modal-issuer");
+  const modalImgContainer = document.getElementById("modal-img-container");
+  const modalFullView = document.getElementById("modal-full-view");
+
+  function openModal(certKey) {
+    const cert = certificatesConfig[certKey];
+    if (!cert) return;
+
+    modalTitle.textContent = cert.title;
+    modalIssuer.textContent = cert.issuer;
+    modalFullView.href = cert.image;
+
+    // Load image gracefully with fallback
+    modalImgContainer.innerHTML = "";
+    const img = document.createElement("img");
+    img.className = "modal-img";
+    img.alt = `${cert.title} Certificate`;
+    img.src = cert.image;
+
+    img.onerror = function () {
+      modalImgContainer.innerHTML = `<div class="modal-placeholder">Certificate image unavailable.<br><small style="color:var(--text-subtle);">(${cert.image})</small></div>`;
+    };
+
+    modalImgContainer.appendChild(img);
 
     modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-    document.body.style.overflow =
-        "hidden";
-
-}
-
-
-function closeCertificate() {
-
+  function closeModal() {
     modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
 
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.style.overflow =
-        "";
-
-    setTimeout(() => {
-
-        certificateImage.src = "";
-
-    }, 300);
-
-}
-
-
-
-/* Buttons */
-
-document
-    .querySelectorAll(
-        ".view-certificate, .training-certificate"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                openCertificate(
-                    button.dataset.certificate
-                );
-
-            }
-        );
-
+  // Attach click events to all certificate view triggers
+  document.querySelectorAll("[data-cert]").forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const certKey = trigger.getAttribute("data-cert");
+      openModal(certKey);
     });
+  });
 
+  if (modalClose) modalClose.addEventListener("click", closeModal);
 
-
-/* Close button */
-
-modalClose.addEventListener(
-    "click",
-    closeCertificate
-);
-
-
-
-/* Click outside */
-
-modal.addEventListener(
-    "click",
-    event => {
-
-        if (event.target === modal) {
-
-            closeCertificate();
-
-        }
-
-    }
-);
-
-
-
-/* Escape key */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape" &&
-            modal.classList.contains("open")
-        ) {
-
-            closeCertificate();
-
-        }
-
-    }
-);
-
-
-
-/* ========================================
-   CERTIFICATE FILTERS
-======================================== */
-
-const filters =
-    document.querySelectorAll(".filter");
-
-const certificateCards =
-    document.querySelectorAll(".certificate-card");
-
-
-filters.forEach(filter => {
-
-    filter.addEventListener("click", () => {
-
-        filters.forEach(item => {
-
-            item.classList.remove("active");
-
-        });
-
-        filter.classList.add("active");
-
-        const selected =
-            filter.dataset.filter;
-
-
-        certificateCards.forEach(card => {
-
-            if (selected === "all") {
-
-                card.classList.remove("hidden");
-
-                return;
-
-            }
-
-
-            const categories =
-                card.dataset.category.split(" ");
-
-
-            if (categories.includes(selected)) {
-
-                card.classList.remove("hidden");
-
-            } else {
-
-                card.classList.add("hidden");
-
-            }
-
-        });
-
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
     });
+  }
 
-});
-
-
-
-/* ========================================
-   SUBTLE MOUSE PARALLAX
-======================================== */
-
-const heroName =
-    document.querySelector(".hero-name");
-
-
-document.addEventListener("mousemove", event => {
-
-    if (window.innerWidth < 900) return;
-
-    const x =
-        (event.clientX / window.innerWidth - 0.5) * 8;
-
-    const y =
-        (event.clientY / window.innerHeight - 0.5) * 8;
-
-
-    heroName.style.transform =
-        `translate(${x}px, ${y}px)`;
-
+  // Escape key to close modal
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) {
+      closeModal();
+    }
+  });
 });
