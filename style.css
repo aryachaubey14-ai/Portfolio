@@ -1737,3 +1737,37 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* FIX: Certificate hover overlay should not block the button */
+
+.cert-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep the certificate button above the hover overlay */
+.cert-view-btn {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Hover information stays behind the button */
+.cert-hover-overlay {
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Make button clearly visible when card is hovered */
+.cert-card:hover .cert-view-btn {
+  position: relative;
+  z-index: 20;
+  color: var(--accent);
+  text-decoration: underline;
+}
