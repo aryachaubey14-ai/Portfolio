@@ -1,259 +1,437 @@
-/* ==========================================================================
-   CERTIFICATE HANDLER
-   ========================================================================== */
+/* =====================================================
+   CERTIFICATE CONFIGURATION
 
-const certificateLinks = {
-  deloitte: "deloitte-data-analytics.png",
-  tata: "tata-genai-data-analytics.png",
-  sqlAdvanced: "sql-advanced.png",
-  sqlBasic: "sql-basic.png",
-  generativeAI: "generative-ai-foundations.png",
-  powerBI: "power-bi-beginners.png"
+   IMPORTANT:
+   These image files must be in the SAME folder as
+   index.html OR change the paths below.
+===================================================== */
+
+const certificates = {
+
+  deloitte: {
+    title: "Data Analytics Job Simulation",
+    issuer: "Deloitte · Forage",
+    image: "deloitte-data-analytics.png"
+  },
+
+  tata: {
+    title: "GenAI Powered Data Analytics Job Simulation",
+    issuer: "Tata · Forage",
+    image: "tata-genai-data-analytics.png"
+  },
+
+  sqlAdvanced: {
+    title: "SQL Advanced Certificate",
+    issuer: "HackerRank",
+    image: "sql-advanced.png"
+  },
+
+  sqlBasic: {
+    title: "SQL Basic Certificate",
+    issuer: "HackerRank",
+    image: "sql-basic.png"
+  },
+
+  generativeAI: {
+    title: "Generative AI Foundations",
+    issuer: "upGrad / Microsoft",
+    image: "generative-ai-foundations.png"
+  },
+
+  powerBI: {
+    title: "Power BI for Beginners",
+    issuer: "Simplilearn / Microsoft",
+    image: "power-bi-beginners.png"
+  }
+
 };
 
-document.querySelectorAll("[data-cert]").forEach((button) => {
-  button.addEventListener("click", function (event) {
-    event.preventDefault();
 
-    const certKey = this.getAttribute("data-cert");
-    const certificateFile = certificateLinks[certKey];
+/* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
-    if (!certificateFile) {
-      console.error("Certificate not found:", certKey);
-      return;
-    }
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
-    const certificateURL =
-      window.location.origin +
-      "/Portfolio/" +
-      certificateFile;
+if (menuBtn) {
 
-    window.open(certificateURL, "_blank");
+  menuBtn.addEventListener("click", () => {
+
+    navMenu.classList.toggle("open");
+
   });
+
+}
+
+
+document.querySelectorAll("nav a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    navMenu.classList.remove("open");
+
+  });
+
 });
 
-/* ==========================================================================
-   SUBTLE PARTICLE BACKGROUND CANVAS
-   ========================================================================== */
-(function initParticles() {
-  const canvas = document.getElementById("particle-canvas");
-  if (!canvas) return;
-  const ctx = canvas.getContext("2d");
 
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-  const particles = [];
-  const particleCount = Math.min(Math.floor(width * 0.035), 45);
+const revealElements = document.querySelectorAll(".reveal");
 
-  class Particle {
-    constructor() {
-      this.reset(true);
-    }
-    reset(initial = false) {
-      this.x = Math.random() * width;
-      this.y = initial ? Math.random() * height : height + 10;
-      this.size = Math.random() * 1.5 + 0.5;
-      this.speedY = Math.random() * 0.4 + 0.15;
-      this.speedX = (Math.random() - 0.5) * 0.2;
-      this.opacity = Math.random() * 0.4 + 0.1;
-    }
-    update() {
-      this.y -= this.speedY;
-      this.x += this.speedX;
-      if (this.y < -10 || this.x < -10 || this.x > width + 10) {
-        this.reset();
+const observer = new IntersectionObserver(
+
+  entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        entry.target.classList.add("visible");
+
+        observer.unobserve(entry.target);
+
       }
-    }
-    draw() {
-      ctx.fillStyle = `rgba(0, 210, 255, ${this.opacity})`;
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
+
+    });
+
+  },
+
+  {
+    threshold: 0.12
   }
 
-  for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle());
+);
+
+
+revealElements.forEach(element => {
+
+  observer.observe(element);
+
+});
+
+
+/* =====================================================
+   CERTIFICATE MODAL
+===================================================== */
+
+const modal = document.getElementById("certificateModal");
+
+const modalClose =
+  document.getElementById("modalClose");
+
+const modalTitle =
+  document.getElementById("modalTitle");
+
+const modalIssuer =
+  document.getElementById("modalIssuer");
+
+const certificateImage =
+  document.getElementById("certificateImage");
+
+const openFull =
+  document.getElementById("openFull");
+
+const imageError =
+  document.getElementById("imageError");
+
+
+function openCertificate(key) {
+
+  const certificate = certificates[key];
+
+  if (!certificate) {
+
+    console.error(
+      "Certificate configuration not found:",
+      key
+    );
+
+    return;
+
   }
 
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-    }
-    requestAnimationFrame(animate);
-  }
 
-  window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+  modalTitle.textContent =
+    certificate.title;
+
+  modalIssuer.textContent =
+    certificate.issuer;
+
+
+  certificateImage.style.display = "block";
+
+  imageError.style.display = "none";
+
+
+  certificateImage.src =
+    certificate.image;
+
+  certificateImage.alt =
+    certificate.title;
+
+
+  openFull.href =
+    certificate.image;
+
+
+  modal.classList.add("open");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+function closeCertificate() {
+
+  modal.classList.remove("open");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* =====================================================
+   CERTIFICATE BUTTONS
+===================================================== */
+
+document
+  .querySelectorAll("[data-certificate]")
+  .forEach(button => {
+
+    button.addEventListener("click", event => {
+
+      event.preventDefault();
+
+      const key =
+        button.dataset.certificate;
+
+      openCertificate(key);
+
+    });
+
   });
 
-  animate();
-})();
 
-/* ==========================================================================
-   DUPLICATE MARQUEE CONTENT FOR SMOOTH SEAMLESS SCROLL
-   ========================================================================== */
-(function initMarquee() {
-  const track = document.getElementById("skills-track");
-  if (track) {
-    track.innerHTML += track.innerHTML;
+/* =====================================================
+   IMAGE ERROR HANDLING
+===================================================== */
+
+certificateImage.addEventListener(
+  "error",
+  () => {
+
+    certificateImage.style.display = "none";
+
+    imageError.style.display = "block";
+
   }
-})();
+);
 
-/* ==========================================================================
-   NAVIGATION, ACTIVE SECTION & MOBILE MENU
-   ========================================================================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navLinks = document.getElementById("nav-links");
-  const navItems = document.querySelectorAll(".nav-link");
-  const sections = document.querySelectorAll("section[id]");
 
-  // Mobile menu toggle
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
-    });
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
-    // Close menu on link click
-    navItems.forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", false);
-      });
-    });
+modalClose.addEventListener(
+  "click",
+  closeCertificate
+);
+
+
+modal.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === modal) {
+
+      closeCertificate();
+
+    }
+
   }
+);
 
-  // Active section indicator on scroll
-  window.addEventListener("scroll", () => {
-    const scrollY = window.pageYOffset;
 
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute("id");
+document.addEventListener(
+  "keydown",
+  event => {
 
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navItems.forEach((item) => {
-          item.classList.remove("active");
-          if (item.getAttribute("href") === `#${sectionId}`) {
-            item.classList.add("active");
-          }
-        });
-      }
-    });
+    if (
+      event.key === "Escape" &&
+      modal.classList.contains("open")
+    ) {
+
+      closeCertificate();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   BACKGROUND PARTICLES
+===================================================== */
+
+const canvas =
+  document.getElementById("particles");
+
+const ctx =
+  canvas.getContext("2d");
+
+
+let particles = [];
+
+let width;
+let height;
+
+
+function resizeCanvas() {
+
+  width =
+    canvas.width =
+    window.innerWidth;
+
+  height =
+    canvas.height =
+    window.innerHeight;
+
+}
+
+
+resizeCanvas();
+
+window.addEventListener(
+  "resize",
+  resizeCanvas
+);
+
+
+/* Create particles */
+
+for (let i = 0; i < 65; i++) {
+
+  particles.push({
+
+    x: Math.random() * window.innerWidth,
+
+    y: Math.random() * window.innerHeight,
+
+    size: Math.random() * 1.8 + .4,
+
+    speedX:
+      (Math.random() - .5) * .25,
+
+    speedY:
+      (Math.random() - .5) * .25,
+
+    opacity:
+      Math.random() * .6 + .15
+
   });
 
-  /* ==========================================================================
-     INTERSECTION OBSERVER FOR SCROLL REVEAL ANIMATIONS
-     ========================================================================== */
-  const revealElements = document.querySelectorAll(".reveal");
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12 }
+}
+
+
+/* Animate particles */
+
+function animateParticles() {
+
+  ctx.clearRect(
+    0,
+    0,
+    width,
+    height
   );
 
-  revealElements.forEach((el) => revealObserver.observe(el));
 
-  /* ==========================================================================
-     CERTIFICATE FILTERING
-     ========================================================================== */
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const certCards = document.querySelectorAll(".cert-card");
+  particles.forEach(particle => {
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
+    particle.x +=
+      particle.speedX;
 
-      const filter = btn.getAttribute("data-filter");
+    particle.y +=
+      particle.speedY;
 
-      certCards.forEach((card) => {
-        const categories = card.getAttribute("data-category") || "";
-        if (filter === "all" || categories.includes(filter)) {
-          card.classList.remove("hidden");
-        } else {
-          card.classList.add("hidden");
-        }
-      });
-    });
+
+    /* Wrap around */
+
+    if (particle.x < 0)
+      particle.x = width;
+
+    if (particle.x > width)
+      particle.x = 0;
+
+    if (particle.y < 0)
+      particle.y = height;
+
+    if (particle.y > height)
+      particle.y = 0;
+
+
+    ctx.beginPath();
+
+    ctx.arc(
+      particle.x,
+      particle.y,
+      particle.size,
+      0,
+      Math.PI * 2
+    );
+
+
+    ctx.fillStyle =
+      `rgba(0,217,255,${particle.opacity})`;
+
+    ctx.fill();
+
   });
 
-  /* ==========================================================================
-     CERTIFICATE MODAL HANDLER
-     ========================================================================== */
-  const modal = document.getElementById("cert-modal");
-  const modalClose = document.getElementById("modal-close");
-  const modalTitle = document.getElementById("modal-title");
-  const modalIssuer = document.getElementById("modal-issuer");
-  const modalImgContainer = document.getElementById("modal-img-container");
-  const modalFullView = document.getElementById("modal-full-view");
 
-  function openModal(certKey) {
-    const cert = certificatesConfig[certKey];
-    if (!cert) return;
+  requestAnimationFrame(
+    animateParticles
+  );
 
-    modalTitle.textContent = cert.title;
-    modalIssuer.textContent = cert.issuer;
-    modalFullView.href = cert.image;
+}
 
-    // Load image gracefully with fallback
-    modalImgContainer.innerHTML = "";
-    const img = document.createElement("img");
-    img.className = "modal-img";
-    img.alt = `${cert.title} Certificate`;
-    img.src = cert.image;
 
-    img.onerror = function () {
-      modalImgContainer.innerHTML = `<div class="modal-placeholder">Certificate image unavailable.<br><small style="color:var(--text-subtle);">(${cert.image})</small></div>`;
-    };
+animateParticles();
 
-    modalImgContainer.appendChild(img);
 
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+/* =====================================================
+   FIGMA LINK
+===================================================== */
 
-  function closeModal() {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
+/*
+   Replace the # in index.html with your actual
+   Figma project link.
 
-  // Attach click events to all certificate view triggers
-  document.querySelectorAll("[data-cert]").forEach((trigger) => {
-    trigger.addEventListener("click", (e) => {
-      e.preventDefault();
-      const certKey = trigger.getAttribute("data-cert");
-      openModal(certKey);
-    });
-  });
+   Example:
 
-  if (modalClose) modalClose.addEventListener("click", closeModal);
+   https://www.figma.com/design/...
+*/
 
-  if (modal) {
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) closeModal();
-    });
-  }
+const figmaLink =
+  document.getElementById("figmaLink");
 
-  // Escape key to close modal
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("open")) {
-      closeModal();
+
+figmaLink.addEventListener(
+  "click",
+  event => {
+
+    if (figmaLink.getAttribute("href") === "#") {
+
+      event.preventDefault();
+
+      alert(
+        "Add your Figma project link in index.html."
+      );
+
     }
-  });
-});
+
+  }
+);
