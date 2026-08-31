@@ -1,431 +1,1402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Arya Chaubey — B.Tech CSE student specialising in AI & Data Analytics. Portfolio of web, Python, SQL and data analytics projects." />
-  <meta name="theme-color" content="#f7f8fa" />
-  <title>Arya Chaubey — AI & Data Analytics Student</title>
+    <meta charset="UTF-8">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Arya Chaubey — Computer Science student specialising in AI & Data Analytics."
+    >
+
+    <title>Arya Chaubey — AI & Data Analytics</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
-  <header class="site-header">
-    <nav class="nav container" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Arya Chaubey home">AC<span>.</span></a>
+    <!-- =====================================================
+         BACKGROUND EFFECTS
+    ====================================================== -->
 
-      <div class="nav-links" id="navLinks">
+    <div class="noise"></div>
+    <div class="grid"></div>
+
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="cursor-glow"></div>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <a href="#home" class="logo">
+            AC<span>.</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <a
+                href="Arya-Choubey-CV.pdf.pdf"
+                target="_blank"
+                class="nav-cv"
+            >
+                CV ↗
+            </a>
+
+            <button
+                class="menu-button"
+                aria-label="Open navigation"
+            >
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE MENU
+    ====================================================== -->
+
+    <div class="mobile-menu">
+
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
-        <a class="nav-resume" href="Arya-Chaubey-CV.pdf.pdf" target="_blank" rel="noopener">CV ↗</a>
-      </div>
 
-      <div class="nav-actions">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-          <span id="themeIcon">◐</span>
-        </button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false">
-          <span></span><span></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+        <a
+            href="Arya-Choubey-CV.pdf.pdf"
+            target="_blank"
+        >
+            View CV ↗
+        </a>
 
-  <main>
-    <section class="hero section" id="home">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> CSE • AI & DATA ANALYTICS</p>
-          <h1>Building practical things with <em>code & data.</em></h1>
-          <p class="hero-text">
-            B.Tech Computer Science student specialising in AI & Data Analytics.
-            I enjoy turning ideas into useful products through Python, SQL,
-            data analytics and web development.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View projects <span>↗</span></a>
-            <a class="btn btn-secondary" href="Arya-Chaubey-CV.pdf.pdf" target="_blank" rel="noopener">View CV</a>
-          </div>
-
-          <div class="hero-meta">
-            <a href="https://github.com/aryachaubey14-ai" target="_blank" rel="noopener">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/aryachaubey14-ai/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            <span>Phagwara, Punjab</span>
-          </div>
-        </div>
-
-        <div class="hero-side reveal">
-          <div class="status-card">
-            <span class="status-dot"></span>
-            <div>
-              <strong>Currently learning</strong>
-              <p>Data analytics • Python • SQL • Web development</p>
-            </div>
-          </div>
-
-          <div class="hero-index">
-            <span>01</span>
-            <span>Portfolio / 2026</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="about">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>01</span>
-          <p>ABOUT</p>
-        </div>
-        <div class="section-content reveal">
-          <h2>A student developer with a <span>curious mindset.</span></h2>
-          <p class="lead">
-            I’m currently pursuing a B.Tech in Computer Science and Engineering
-            with a specialisation in AI & Data Analytics at Lovely Professional University.
-          </p>
-          <p>
-            I like working at the intersection of software and data — building clean
-            interfaces, automating small workflows, exploring datasets and learning
-            how technology can solve everyday problems.
-          </p>
-
-          <div class="mini-stats">
-            <div><strong>8.67</strong><span>CGPA</span></div>
-            <div><strong>4+</strong><span>Projects</span></div>
-            <div><strong>2</strong><span>Virtual Experiences</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="skills">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>02</span>
-          <p>SKILLS</p>
-        </div>
-        <div class="section-content reveal">
-          <div class="skill-list">
-            <article class="skill-row">
-              <div class="skill-title">Languages</div>
-              <div class="skill-items">Python <i>•</i> SQL <i>•</i> C <i>•</i> C++</div>
-            </article>
-            <article class="skill-row">
-              <div class="skill-title">Web</div>
-              <div class="skill-items">HTML <i>•</i> CSS <i>•</i> JavaScript</div>
-            </article>
-            <article class="skill-row">
-              <div class="skill-title">Data</div>
-              <div class="skill-items">Pandas <i>•</i> NumPy <i>•</i> Matplotlib <i>•</i> Power BI <i>•</i> Tableau</div>
-            </article>
-            <article class="skill-row">
-              <div class="skill-title">Databases</div>
-              <div class="skill-items">MySQL <i>•</i> Oracle</div>
-            </article>
-            <article class="skill-row">
-              <div class="skill-title">Tools</div>
-              <div class="skill-items">Git <i>•</i> GitHub <i>•</i> Figma <i>•</i> Microsoft Excel</div>
-            </article>
-            <article class="skill-row">
-              <div class="skill-title">Soft skills</div>
-              <div class="skill-items">Problem Solving <i>•</i> Analytical Thinking <i>•</i> Adaptability</div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="projects">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <p class="eyebrow"><span></span> SELECTED WORK</p>
-            <h2>Projects that show how I <span>learn by building.</span></h2>
-          </div>
-          <a class="text-link" href="https://github.com/aryachaubey14-ai?tab=repositories" target="_blank" rel="noopener">All repositories ↗</a>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card featured reveal">
-            <div class="project-top">
-              <span class="project-number">01</span>
-              <span class="project-date">Aug 2026</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type">PRODUCTIVITY • WEB</p>
-              <h3>Study Sanctuary</h3>
-              <p>
-                A Pinterest-inspired student productivity dashboard for organising
-                tasks, study sessions, notes and personal goals in one calm workspace.
-              </p>
-              <div class="tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>LocalStorage</span>
-              </div>
-            </div>
-            <a class="project-link" href="https://github.com/aryachaubey14-ai?tab=repositories" target="_blank" rel="noopener">
-              View on GitHub <span>↗</span>
-            </a>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-number">02</span>
-              <span class="project-date">Jan–Feb 2026</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type">PYTHON • DATABASE</p>
-              <h3>Expense Tracker</h3>
-              <p>
-                A website for maintaining and tracking expense records with
-                categories, dates, descriptions and amounts.
-              </p>
-              <div class="tags">
-                <span>Python</span><span>Flask</span><span>SQLite</span><span>HTML</span><span>CSS</span>
-              </div>
-            </div>
-            <a class="project-link" href="https://github.com/aryachaubey14-ai?tab=repositories" target="_blank" rel="noopener">
-              View on GitHub <span>↗</span>
-            </a>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-number">03</span>
-              <span class="project-date">Oct–Nov 2025</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type">DATABASE • SYSTEM</p>
-              <h3>Hospital Management System</h3>
-              <p>
-                A Python and MySQL based management system covering patient,
-                doctor and staff records with CRUD operations and authentication.
-              </p>
-              <div class="tags">
-                <span>Python</span><span>MySQL</span></div>
-            </div>
-            <a class="project-link" href="https://github.com/aryachaubey14-ai?tab=repositories" target="_blank" rel="noopener">
-              View on GitHub <span>↗</span>
-            </a>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <span class="project-number">04</span>
-              <span class="project-date">June 2026</span>
-            </div>
-            <div class="project-body">
-              <p class="project-type">WEB • GAME</p>
-              <h3>Snake Game</h3>
-              <p>
-                An interactive browser-based Snake game with score tracking,
-                restart functionality and an HTML canvas interface.
-              </p>
-              <div class="tags">
-                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Canvas</span>
-              </div>
-            </div>
-            <a class="project-link" href="https://github.com/aryachaubey14-ai?tab=repositories" target="_blank" rel="noopener">
-              View on GitHub <span>↗</span>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="experience">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>04</span>
-          <p>EXPERIENCE</p>
-        </div>
-
-        <div class="section-content reveal">
-          <div class="timeline-item">
-            <div class="timeline-date">Jul 2026</div>
-            <div>
-              <p class="eyebrow">DELOITTE AUSTRALIA • FORAGE</p>
-              <h3>Data Analytics Job Simulation</h3>
-              <p>
-                Completed a job simulation involving data analysis and forensic
-                technology. Created an interactive Tableau dashboard and used
-                Excel for classifying data and drawing business conclusions.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-date">Jul 2026</div>
-            <div>
-              <p class="eyebrow">TATA IQ • FORAGE</p>
-              <h3>GenAI Powered Data Analytics Job Simulation</h3>
-              <p>
-                Explored exploratory data analysis using GenAI tools, assessed
-                data quality and predictive modelling readiness, and designed
-                an AI-driven collections strategy with responsible AI principles.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="certifications">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>05</span>
-          <p>CERTIFICATIONS</p>
-        </div>
-        <div class="section-content reveal">
-          <div class="cert-list">
-            <button class="cert-row cert-button" type="button"
-              data-cert="sql-advanced.png" data-title="SQL (Advanced)" data-issuer="HackerRank">
-              <span>SQL (Advanced)</span><strong>HackerRank</strong><time>View certificate ↗</time>
-            </button>
-            <button class="cert-row cert-button" type="button"
-              data-cert="sql-basic.png" data-title="SQL (Basic)" data-issuer="HackerRank">
-              <span>SQL (Basic)</span><strong>HackerRank</strong><time>View certificate ↗</time>
-            </button>
-            <button class="cert-row cert-button" type="button"
-              data-cert="generative-ai-foundations.png" data-title="Generative AI Foundations" data-issuer="upGrad">
-              <span>Generative AI Foundations</span><strong>upGrad</strong><time>View certificate ↗</time>
-            </button>
-            <button class="cert-row cert-button" type="button"
-              data-cert="power-bi-beginners.png" data-title="Power BI for Beginners" data-issuer="Simplilearn">
-              <span>Power BI for Beginners</span><strong>Simplilearn</strong><time>View certificate ↗</time>
-            </button>
-            <button class="cert-row cert-button" type="button"
-              data-cert="deloitte-data-analytics.png" data-title="Data Analytics Job Simulation" data-issuer="Deloitte Australia • Forage">
-              <span>Data Analytics Job Simulation</span><strong>Deloitte Australia • Forage</strong><time>View certificate ↗</time>
-            </button>
-            <button class="cert-row cert-button" type="button"
-              data-cert="tata-genai-data-analytics.png" data-title="GenAI Powered Data Analytics Job Simulation" data-issuer="Tata IQ • Forage">
-              <span>GenAI Powered Data Analytics Job Simulation</span><strong>Tata IQ • Forage</strong><time>View certificate ↗</time>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="achievements">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>06</span>
-          <p>ACHIEVEMENTS</p>
-        </div>
-        <div class="section-content reveal">
-          <div class="achievement-box">
-            <strong>500+</strong>
-            <div>
-              <h3>Problems solved</h3>
-              <p>
-                Solved 500+ SQL and database problems on HackerRank and other
-                coding platforms, strengthening query-writing and problem-solving skills.
-              </p>
-            </div>
-          </div>
-          <div class="achievement-box">
-            <strong>∞</strong>
-            <div>
-              <h3>Always learning</h3>
-              <p>
-                Built hands-on proficiency in SQL, Python, C and C++ through
-                consistent coding practice and academic problem-solving.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-border" id="education">
-      <div class="container two-column">
-        <div class="section-label reveal">
-          <span>07</span>
-          <p>EDUCATION</p>
-        </div>
-        <div class="section-content reveal">
-          <div class="education-item">
-            <div class="edu-year">2025 — Present</div>
-            <div>
-              <p class="eyebrow">LOVELY PROFESSIONAL UNIVERSITY</p>
-              <h3>B.Tech — Computer Science & Engineering</h3>
-              <p>Specialisation in AI & Data Analytics · CGPA 8.67</p>
-              <span class="muted">Phagwara, Punjab</span>
-            </div>
-          </div>
-
-          <div class="education-item">
-            <div class="edu-year">2023 — 2025</div>
-            <div>
-              <p class="eyebrow">NIRMALA CONVENT HIGH SCHOOL</p>
-              <h3>Higher Secondary Education</h3>
-              <p>Percentage: 79.2%</p>
-              <span class="muted">Renukoot, Uttar Pradesh</span>
-            </div>
-          </div>
-
-          <div class="education-item">
-            <div class="edu-year">2022 — 2023</div>
-            <div>
-              <p class="eyebrow">NIRMALA CONVENT HIGH SCHOOL</p>
-              <h3>Secondary Education</h3>
-              <p>Percentage: 88.4%</p>
-              <span class="muted">Renukoot, Uttar Pradesh</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="cert-modal" id="certModal" aria-hidden="true">
-      <div class="cert-modal-backdrop" data-close-cert></div>
-      <div class="cert-modal-card" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
-        <button class="cert-close" id="certClose" type="button" aria-label="Close certificate">×</button>
-        <div class="cert-modal-heading">
-          <div>
-            <p class="eyebrow"><span></span> CERTIFICATE</p>
-            <h3 id="certModalTitle">Certificate</h3>
-            <p id="certModalIssuer"></p>
-          </div>
-        </div>
-        <img id="certModalImage" src="" alt="" />
-      </div>
     </div>
 
-    <section class="contact-section section" id="contact">
-      <div class="container contact-inner reveal">
-        <p class="eyebrow"><span></span> GET IN TOUCH</p>
-        <h2>Have an idea? <span>Let’s build.</span></h2>
-        <p>Open to internships, collaborations, student projects and interesting conversations.</p>
-        <a class="contact-email" href="mailto:aryachaubey14@gmail.com">aryachaubey14@gmail.com <span>↗</span></a>
 
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/aryachaubey14-ai/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://github.com/aryachaubey14-ai" target="_blank" rel="noopener">GitHub ↗</a>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section
+            id="home"
+            class="hero section"
+        >
+
+            <div class="hero-top-label">
+
+                <span class="status-dot"></span>
+
+                CSE • AI & DATA ANALYTICS
+
+            </div>
+
+
+            <div class="hero-content">
+
+                <h1 class="hero-title">
+
+                    <span>ARYA</span>
+                    <span>CHAUBEY</span>
+
+                </h1>
+
+
+                <div class="hero-bottom">
+
+                    <p class="hero-description">
+
+                        Computer Science student specialising in
+                        <strong>AI & Data Analytics.</strong>
+
+                        I build practical projects with code,
+                        data and curiosity.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#projects"
+                            class="button primary magnetic"
+                        >
+                            <span>View my work</span>
+                            <span>↘</span>
+                        </a>
+
+
+                        <a
+                            href="Arya-Choubey-CV.pdf.pdf"
+                            target="_blank"
+                            class="button secondary magnetic"
+                        >
+                            <span>Download CV</span>
+                            <span>↗</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-footer">
+
+                <div>
+
+                    <span class="mono-label">
+                        CURRENTLY LEARNING
+                    </span>
+
+                    <p>
+                        Data Analytics • Python • SQL • Web Development
+                    </p>
+
+                </div>
+
+
+                <div class="hero-scroll">
+
+                    <span>SCROLL TO EXPLORE</span>
+
+                    <div class="scroll-line"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section
+            id="about"
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                01
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    ABOUT
+                </span>
+
+
+                <h2>
+
+                    Curious about ideas,
+                    data and how technology
+                    can make them useful.
+
+                </h2>
+
+
+                <div class="about-grid">
+
+                    <p>
+
+                        I'm currently pursuing a B.Tech in
+                        Computer Science and Engineering with a
+                        specialisation in AI & Data Analytics at
+                        Lovely Professional University.
+
+                    </p>
+
+
+                    <p>
+
+                        I enjoy working at the intersection of
+                        software and data — building clean
+                        interfaces, exploring datasets and turning
+                        ideas into practical projects.
+
+                    </p>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <span class="stat-number">
+                            8.67
+                        </span>
+
+                        <span class="stat-label">
+                            CGPA
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span class="stat-number">
+                            4+
+                        </span>
+
+                        <span class="stat-label">
+                            PROJECTS
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <span class="stat-number">
+                            2
+                        </span>
+
+                        <span class="stat-label">
+                            VIRTUAL EXPERIENCES
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SKILLS
+        ================================================== -->
+
+        <section
+            id="skills"
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                02
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    SKILLS
+                </span>
+
+
+                <h2>
+                    Tools I work with.
+                </h2>
+
+
+                <p class="section-intro">
+
+                    Technologies I'm actively using and improving
+                    through projects and consistent practice.
+
+                </p>
+
+
+                <div class="skills-list">
+
+
+                    <div class="skill-row">
+
+                        <span class="skill-index">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Programming
+                            </h3>
+
+                            <p>
+                                Python · SQL · C · C++
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span class="skill-index">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Data & Analytics
+                            </h3>
+
+                            <p>
+                                Pandas · NumPy · Matplotlib ·
+                                Power BI · Tableau · Excel
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span class="skill-index">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Web Development
+                            </h3>
+
+                            <p>
+                                HTML · CSS · JavaScript
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span class="skill-index">
+                            04
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Databases
+                            </h3>
+
+                            <p>
+                                MySQL · Oracle
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span class="skill-index">
+                            05
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Tools
+                            </h3>
+
+                            <p>
+                                Git · GitHub · Figma
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <section
+            id="projects"
+            class="section content-section projects-section reveal"
+        >
+
+            <div class="section-number">
+                03
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    SELECTED WORK
+                </span>
+
+
+                <div class="projects-heading">
+
+                    <div>
+
+                        <h2>
+                            Things I've built.
+                        </h2>
+
+                        <p class="section-intro">
+
+                            Projects where I learn by building,
+                            experimenting and solving problems.
+
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/aryachaubey14-ai"
+                        target="_blank"
+                        class="text-link"
+                    >
+                        All repositories ↗
+                    </a>
+
+                </div>
+
+
+                <div class="projects-list">
+
+
+                    <!-- STUDY SANCTUARY -->
+
+                    <article class="project-card featured">
+
+                        <div class="project-meta">
+
+                            <span>
+                                01
+                            </span>
+
+                            <span>
+                                PRODUCTIVITY • WEB
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div>
+
+                                <span class="featured-tag">
+                                    FEATURED PROJECT
+                                </span>
+
+                                <h3>
+                                    Study Sanctuary ✦
+                                </h3>
+
+
+                                <p>
+
+                                    A student productivity dashboard
+                                    designed as a calm workspace for
+                                    organising tasks, study sessions,
+                                    notes and personal goals.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-details">
+
+                                <div class="project-tech">
+
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>LocalStorage</span>
+
+                                </div>
+
+
+                                <a
+                                    href="https://github.com/aryachaubey14-ai/study-sanctuary"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+
+                                    View on GitHub
+                                    <span>↗</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- EXPENSE TRACKER -->
+
+                    <article class="project-card">
+
+                        <div class="project-meta">
+
+                            <span>
+                                02
+                            </span>
+
+                            <span>
+                                PYTHON • DATABASE
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div>
+
+                                <h3>
+                                    Expense Tracker
+                                </h3>
+
+
+                                <p>
+
+                                    A web application for maintaining
+                                    and tracking expense records with
+                                    categories, dates, descriptions
+                                    and amounts.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-details">
+
+                                <div class="project-tech">
+
+                                    <span>Python</span>
+                                    <span>Flask</span>
+                                    <span>SQLite</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+
+                                </div>
+
+
+                                <a
+                                    href="https://github.com/aryachaubey14-ai"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+
+                                    View on GitHub
+                                    <span>↗</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HOSPITAL MANAGEMENT -->
+
+                    <article class="project-card">
+
+                        <div class="project-meta">
+
+                            <span>
+                                03
+                            </span>
+
+                            <span>
+                                DATABASE • SYSTEM
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div>
+
+                                <h3>
+                                    Hospital Management System
+                                </h3>
+
+
+                                <p>
+
+                                    A Python and MySQL based
+                                    management system covering patient,
+                                    doctor and staff records with CRUD
+                                    operations and authentication.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-details">
+
+                                <div class="project-tech">
+
+                                    <span>Python</span>
+                                    <span>MySQL</span>
+
+                                </div>
+
+
+                                <a
+                                    href="https://github.com/aryachaubey14-ai"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+
+                                    View on GitHub
+                                    <span>↗</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- SNAKE GAME -->
+
+                    <article class="project-card">
+
+                        <div class="project-meta">
+
+                            <span>
+                                04
+                            </span>
+
+                            <span>
+                                WEB • GAME
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <div>
+
+                                <h3>
+                                    Snake Game
+                                </h3>
+
+
+                                <p>
+
+                                    An interactive browser-based Snake
+                                    game with score tracking, restart
+                                    functionality and an HTML canvas
+                                    interface.
+
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-details">
+
+                                <div class="project-tech">
+
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                    <span>Canvas</span>
+
+                                </div>
+
+
+                                <a
+                                    href="https://github.com/aryachaubey14-ai"
+                                    target="_blank"
+                                    class="project-link"
+                                >
+
+                                    View on GitHub
+                                    <span>↗</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPERIENCE
+        ================================================== -->
+
+        <section
+            id="experience"
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                04
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    EXPERIENCE
+                </span>
+
+
+                <h2>
+                    Learning beyond the classroom.
+                </h2>
+
+
+                <div class="experience-list">
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-date">
+                            JUL 2026
+                        </div>
+
+
+                        <div>
+
+                            <span class="company">
+                                DELOITTE AUSTRALIA • FORAGE
+                            </span>
+
+
+                            <h3>
+                                Data Analytics Job Simulation
+                            </h3>
+
+
+                            <p>
+
+                                Completed a data analytics and
+                                forensic technology simulation.
+                                Created an interactive Tableau
+                                dashboard and used Excel to
+                                classify data and draw business
+                                conclusions.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="experience-card">
+
+                        <div class="experience-date">
+                            JUL 2026
+                        </div>
+
+
+                        <div>
+
+                            <span class="company">
+                                TATA IQ • FORAGE
+                            </span>
+
+
+                            <h3>
+                                GenAI Powered Data Analytics
+                                Job Simulation
+                            </h3>
+
+
+                            <p>
+
+                                Explored exploratory data analysis
+                                using GenAI tools, assessed data
+                                quality and predictive modelling
+                                readiness, and designed an AI-driven
+                                collections strategy.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CERTIFICATIONS
+        ================================================== -->
+
+        <section
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                05
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    CERTIFICATIONS
+                </span>
+
+
+                <h2>
+                    Learning in public.
+                </h2>
+
+
+                <div class="cert-grid">
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="sql-advanced.png"
+                        data-title="SQL (Advanced)"
+                    >
+
+                        <span>01</span>
+
+                        <h3>
+                            SQL (Advanced)
+                        </h3>
+
+                        <p>
+                            HackerRank
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="sql-basic.png"
+                        data-title="SQL (Basic)"
+                    >
+
+                        <span>02</span>
+
+                        <h3>
+                            SQL (Basic)
+                        </h3>
+
+                        <p>
+                            HackerRank
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="generative-ai-foundations.png"
+                        data-title="Generative AI Foundations"
+                    >
+
+                        <span>03</span>
+
+                        <h3>
+                            Generative AI Foundations
+                        </h3>
+
+                        <p>
+                            upGrad
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="power-bi-beginners.png"
+                        data-title="Power BI for Beginners"
+                    >
+
+                        <span>04</span>
+
+                        <h3>
+                            Power BI for Beginners
+                        </h3>
+
+                        <p>
+                            Simplilearn
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="deloitte-data-analytics.png"
+                        data-title="Deloitte Data Analytics"
+                    >
+
+                        <span>05</span>
+
+                        <h3>
+                            Data Analytics Job Simulation
+                        </h3>
+
+                        <p>
+                            Deloitte Australia • Forage
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="certificate-card"
+                        data-image="tata-genai-data-analytics.png"
+                        data-title="Tata GenAI Data Analytics"
+                    >
+
+                        <span>06</span>
+
+                        <h3>
+                            GenAI Powered Data Analytics
+                        </h3>
+
+                        <p>
+                            Tata IQ • Forage
+                        </p>
+
+                        <span class="cert-arrow">
+                            ↗
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ACHIEVEMENTS
+        ================================================== -->
+
+        <section
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                06
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    ACHIEVEMENTS
+                </span>
+
+
+                <div class="achievement-grid">
+
+
+                    <article>
+
+                        <span class="achievement-number">
+                            500+
+                        </span>
+
+
+                        <h3>
+                            Problems solved
+                        </h3>
+
+
+                        <p>
+
+                            Solved 500+ SQL and database problems
+                            across coding platforms, strengthening
+                            query writing and problem-solving skills.
+
+                        </p>
+
+                    </article>
+
+
+                    <article>
+
+                        <span class="achievement-number">
+                            ∞
+                        </span>
+
+
+                        <h3>
+                            Always learning
+                        </h3>
+
+
+                        <p>
+
+                            Continuously building hands-on
+                            proficiency in programming, databases,
+                            analytics and web development.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EDUCATION
+        ================================================== -->
+
+        <section
+            id="education"
+            class="section content-section reveal"
+        >
+
+            <div class="section-number">
+                07
+            </div>
+
+
+            <div class="section-content">
+
+                <span class="section-label">
+                    EDUCATION
+                </span>
+
+
+                <h2>
+                    Academic journey.
+                </h2>
+
+
+                <div class="education-list">
+
+
+                    <article class="education-card">
+
+                        <span>
+                            2025 — PRESENT
+                        </span>
+
+                        <div>
+
+                            <p class="school">
+                                LOVELY PROFESSIONAL UNIVERSITY
+                            </p>
+
+                            <h3>
+                                B.Tech — Computer Science & Engineering
+                            </h3>
+
+                            <p>
+                                Specialisation in AI & Data Analytics
+                                · CGPA 8.67
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <span>
+                            2023 — 2025
+                        </span>
+
+                        <div>
+
+                            <p class="school">
+                                NIRMALA CONVENT HIGH SCHOOL
+                            </p>
+
+                            <h3>
+                                Higher Secondary Education
+                            </h3>
+
+                            <p>
+                                Percentage: 79.2%
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="education-card">
+
+                        <span>
+                            2022 — 2023
+                        </span>
+
+                        <div>
+
+                            <p class="school">
+                                NIRMALA CONVENT HIGH SCHOOL
+                            </p>
+
+                            <h3>
+                                Secondary Education
+                            </h3>
+
+                            <p>
+                                Percentage: 88.4%
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <section
+            id="contact"
+            class="section contact-section reveal"
+        >
+
+            <span class="section-label">
+                GET IN TOUCH
+            </span>
+
+
+            <h2>
+
+                Have an idea?
+                <br>
+                Let's build.
+
+            </h2>
+
+
+            <p>
+
+                Open to internships, collaborations,
+                student projects and interesting
+                conversations.
+
+            </p>
+
+
+            <a
+                href="mailto:aryachaubey14@gmail.com"
+                class="email-link"
+            >
+
+                aryachaubey14@gmail.com
+                <span>↗</span>
+
+            </a>
+
+
+            <div class="social-links">
+
+                <a
+                    href="https://github.com/aryachaubey14-ai"
+                    target="_blank"
+                >
+                    GitHub ↗
+                </a>
+
+                <!-- Replace this with your exact LinkedIn URL -->
+                <a
+                    href="#"
+                >
+                    LinkedIn ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <span>
+            © 2026 Arya Chaubey
+        </span>
+
+        <span>
+            Built with HTML, CSS & JavaScript
+        </span>
+
+        <a href="#home">
+            Back to top ↑
+        </a>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         CERTIFICATE MODAL
+    ====================================================== -->
+
+    <div
+        class="certificate-modal"
+        id="certificateModal"
+    >
+
+        <button
+            class="modal-close"
+            aria-label="Close certificate"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-content">
+
+            <span class="modal-label">
+                CERTIFICATE
+            </span>
+
+            <h3 id="modalTitle">
+                Certificate
+            </h3>
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Certificate"
+            >
+
         </div>
-      </div>
-    </section>
-  </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Arya Chaubey</span>
-      <span>Designed & built with HTML, CSS & JavaScript.</span>
-      <a href="#home">Back to top ↑</a>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
