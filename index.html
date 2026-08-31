@@ -27,6 +27,7 @@
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        <a class="nav-resume" href="Arya-Chaubey-CV.pdf.pdf" target="_blank" rel="noopener">CV ↗</a>
       </div>
 
       <div class="nav-actions">
@@ -54,7 +55,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">View projects <span>↗</span></a>
-            <a class="btn btn-secondary" href="mailto:aryachaubey14@gmail.com">Let's connect</a>
+            <a class="btn btn-secondary" href="Arya-Chaubey-CV.pdf.pdf" target="_blank" rel="noopener">View CV</a>
           </div>
 
           <div class="hero-meta">
@@ -287,15 +288,30 @@
         </div>
         <div class="section-content reveal">
           <div class="cert-list">
-            <a class="cert-row" href="https://www.hackerrank.com/" target="_blank" rel="noopener">
-              <span>SQL (Advanced)</span><strong>HackerRank</strong><time>Mar 2026</time>
-            </a>
-            <a class="cert-row" href="https://www.upgrad.com/" target="_blank" rel="noopener">
-              <span>Generative AI Foundations</span><strong>upGrad</strong><time>Feb 2026</time>
-            </a>
-            <a class="cert-row" href="https://www.simplilearn.com/" target="_blank" rel="noopener">
-              <span>Power BI for Beginners</span><strong>SimpliLearn</strong><time>Sep 2025</time>
-            </a>
+            <button class="cert-row cert-button" type="button"
+              data-cert="sql-advanced.png" data-title="SQL (Advanced)" data-issuer="HackerRank">
+              <span>SQL (Advanced)</span><strong>HackerRank</strong><time>View certificate ↗</time>
+            </button>
+            <button class="cert-row cert-button" type="button"
+              data-cert="sql-basic.png" data-title="SQL (Basic)" data-issuer="HackerRank">
+              <span>SQL (Basic)</span><strong>HackerRank</strong><time>View certificate ↗</time>
+            </button>
+            <button class="cert-row cert-button" type="button"
+              data-cert="generative-ai-foundations.png" data-title="Generative AI Foundations" data-issuer="upGrad">
+              <span>Generative AI Foundations</span><strong>upGrad</strong><time>View certificate ↗</time>
+            </button>
+            <button class="cert-row cert-button" type="button"
+              data-cert="power-bi-beginners.png" data-title="Power BI for Beginners" data-issuer="Simplilearn">
+              <span>Power BI for Beginners</span><strong>Simplilearn</strong><time>View certificate ↗</time>
+            </button>
+            <button class="cert-row cert-button" type="button"
+              data-cert="deloitte-data-analytics.png" data-title="Data Analytics Job Simulation" data-issuer="Deloitte Australia • Forage">
+              <span>Data Analytics Job Simulation</span><strong>Deloitte Australia • Forage</strong><time>View certificate ↗</time>
+            </button>
+            <button class="cert-row cert-button" type="button"
+              data-cert="tata-genai-data-analytics.png" data-title="GenAI Powered Data Analytics Job Simulation" data-issuer="Tata IQ • Forage">
+              <span>GenAI Powered Data Analytics Job Simulation</span><strong>Tata IQ • Forage</strong><time>View certificate ↗</time>
+            </button>
           </div>
         </div>
       </div>
@@ -371,6 +387,21 @@
         </div>
       </div>
     </section>
+
+    <div class="cert-modal" id="certModal" aria-hidden="true">
+      <div class="cert-modal-backdrop" data-close-cert></div>
+      <div class="cert-modal-card" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+        <button class="cert-close" id="certClose" type="button" aria-label="Close certificate">×</button>
+        <div class="cert-modal-heading">
+          <div>
+            <p class="eyebrow"><span></span> CERTIFICATE</p>
+            <h3 id="certModalTitle">Certificate</h3>
+            <p id="certModalIssuer"></p>
+          </div>
+        </div>
+        <img id="certModalImage" src="" alt="" />
+      </div>
+    </div>
 
     <section class="contact-section section" id="contact">
       <div class="container contact-inner reveal">
