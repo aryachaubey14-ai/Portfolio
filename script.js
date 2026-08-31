@@ -1,40 +1,36 @@
-const certificatesConfig = {
-  deloitte: {
-    title: "Data Analytics Job Simulation",
-    issuer: "Deloitte · Forage",
-    image: "deloitte-data-analytics.png"
-  },
+/* ==========================================================================
+   CERTIFICATE HANDLER
+   ========================================================================== */
 
-  tata: {
-    title: "GenAI Powered Data Analytics Job Simulation",
-    issuer: "Tata · Forage",
-    image: "tata-genai-data-analytics.png"
-  },
-
-  sqlAdvanced: {
-    title: "SQL Advanced Certificate",
-    issuer: "HackerRank",
-    image: "sql-advanced.png"
-  },
-
-  sqlBasic: {
-    title: "SQL Basic Certificate",
-    issuer: "HackerRank",
-    image: "sql-basic.png"
-  },
-
-  generativeAI: {
-    title: "Generative AI Foundations",
-    issuer: "upGrad / Microsoft",
-    image: "generative-ai-foundations.png"
-  },
-
-  powerBI: {
-    title: "Power BI for Beginners",
-    issuer: "Simplilearn / Microsoft",
-    image: "power-bi-beginners.png"
-  }
+const certificateLinks = {
+  deloitte: "deloitte-data-analytics.png",
+  tata: "tata-genai-data-analytics.png",
+  sqlAdvanced: "sql-advanced.png",
+  sqlBasic: "sql-basic.png",
+  generativeAI: "generative-ai-foundations.png",
+  powerBI: "power-bi-beginners.png"
 };
+
+document.querySelectorAll("[data-cert]").forEach((button) => {
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    const certKey = this.getAttribute("data-cert");
+    const certificateFile = certificateLinks[certKey];
+
+    if (!certificateFile) {
+      console.error("Certificate not found:", certKey);
+      return;
+    }
+
+    const certificateURL =
+      window.location.origin +
+      "/Portfolio/" +
+      certificateFile;
+
+    window.open(certificateURL, "_blank");
+  });
+});
 
 /* ==========================================================================
    SUBTLE PARTICLE BACKGROUND CANVAS
