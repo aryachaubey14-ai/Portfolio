@@ -1,157 +1,454 @@
-/* =========================================================
-   ARYA CHAUBEY PORTFOLIO — INTERACTIONS
-   ========================================================= */
+/* ========================================
+   BACKGROUND SPARKLES
+======================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const particles = document.getElementById("particles");
 
-  /* ---------- Sticky nav border on scroll ---------- */
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 8);
-  }, { passive: true });
+for (let i = 0; i < 45; i++) {
 
-  /* ---------- Mobile hamburger menu ---------- */
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileNav = document.getElementById('mobile-nav');
+    const sparkle = document.createElement("span");
 
-  menuBtn.addEventListener('click', () => {
-    const isOpen = mobileNav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-    menuBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-  });
+    sparkle.classList.add("sparkle");
 
-  document.querySelectorAll('[data-nav]').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.setAttribute('aria-label', 'Open menu');
+    sparkle.style.left = Math.random() * 100 + "%";
+
+    sparkle.style.animationDuration =
+        (8 + Math.random() * 15) + "s";
+
+    sparkle.style.animationDelay =
+        (Math.random() * 10) + "s";
+
+    sparkle.style.transform =
+        `scale(${0.5 + Math.random()})`;
+
+    particles.appendChild(sparkle);
+}
+
+
+
+/* ========================================
+   MOBILE NAVIGATION
+======================================== */
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+
+    navMenu.classList.toggle("open");
+
+});
+
+
+document.querySelectorAll(".nav-link").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("open");
+
     });
-  });
 
-  /* ---------- Scrollspy: active nav link ---------- */
-  const sections = Array.from(document.querySelectorAll('main .section[id]'));
-  const navLinks = Array.from(document.querySelectorAll('.nav-links a, .mobile-nav a'));
+});
 
-  function spy() {
-    let currentId = sections[0]?.id;
-    const scrollPos = window.scrollY + window.innerHeight * 0.35;
 
-    sections.forEach(section => {
-      if (section.offsetTop <= scrollPos) currentId = section.id;
-    });
 
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
-    });
-  }
-  window.addEventListener('scroll', spy, { passive: true });
-  spy();
+/* ========================================
+   SCROLL PROGRESS
+======================================== */
 
-  /* ---------- Scroll reveal ---------- */
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window && !prefersReducedMotion) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
+window.addEventListener("scroll", () => {
+
+    const scrollTop =
+        window.scrollY;
+
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        (scrollTop / documentHeight) * 100;
+
+    document.getElementById("scrollProgress")
+        .style.width = progress + "%";
+
+});
+
+
+
+/* ========================================
+   REVEAL ANIMATIONS
+======================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const revealObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.12
         }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('is-visible'));
-  }
+    );
 
-  /* ---------- Hero rotating text ---------- */
-  const rotatorPhrases = ['Data Analytics', 'AI & Data', 'SQL & Visualization', 'Practical Projects'];
-  const rotatorEl = document.getElementById('rotator-text');
 
-  if (rotatorEl) {
-    if (prefersReducedMotion) {
-      rotatorEl.textContent = rotatorPhrases[0];
-    } else {
-      let phraseIndex = 0;
-      let charIndex = 0;
-      let deleting = false;
+revealElements.forEach(element => {
 
-      function tick() {
-        const current = rotatorPhrases[phraseIndex];
+    revealObserver.observe(element);
 
-        if (!deleting) {
-          charIndex++;
-          rotatorEl.textContent = current.slice(0, charIndex);
-          if (charIndex === current.length) {
-            deleting = true;
-            setTimeout(tick, 1400);
-            return;
-          }
-        } else {
-          charIndex--;
-          rotatorEl.textContent = current.slice(0, charIndex);
-          if (charIndex === 0) {
-            deleting = false;
-            phraseIndex = (phraseIndex + 1) % rotatorPhrases.length;
-          }
+});
+
+
+
+/* ========================================
+   ACTIVE NAVIGATION
+======================================== */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+const sectionObserver =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    navLinks.forEach(link => {
+
+                        link.classList.remove("active");
+
+                    });
+
+                    const activeLink =
+                        document.querySelector(
+                            `.nav-link[href="#${entry.target.id}"]`
+                        );
+
+                    if (activeLink) {
+
+                        activeLink.classList.add("active");
+
+                    }
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: 0.35
         }
-        setTimeout(tick, deleting ? 35 : 65);
-      }
 
-      rotatorEl.textContent = '';
-      setTimeout(tick, 500);
-    }
-  }
+    );
 
-  /* ---------- Certificate modal / lightbox ---------- */
-  const certModal = document.getElementById('cert-modal');
-  const certModalImg = document.getElementById('cert-modal-img');
-  const certModalTitle = document.getElementById('cert-modal-title');
-  const certModalFullsize = document.getElementById('cert-modal-fullsize');
-  let lastFocusedEl = null;
 
-  function openCertModal(card) {
-    const img = card.dataset.img;
-    const title = card.dataset.title;
-    const provider = card.dataset.provider;
+sections.forEach(section => {
 
-    certModalImg.src = img;
-    certModalImg.alt = `Full certificate: ${title}`;
-    certModalTitle.textContent = `${title} — ${provider}`;
-    certModalFullsize.href = img;
+    sectionObserver.observe(section);
 
-    lastFocusedEl = document.activeElement;
-    certModal.hidden = false;
-    document.body.style.overflow = 'hidden';
-    certModal.querySelector('.cert-modal-close').focus();
-  }
+});
 
-  function closeCertModal() {
-    certModal.hidden = true;
-    document.body.style.overflow = '';
-    certModalImg.src = '';
-    if (lastFocusedEl) lastFocusedEl.focus();
-  }
 
-  document.querySelectorAll('.cert-card').forEach(card => {
-    const viewBtn = card.querySelector('[data-open-cert]');
-    if (viewBtn) {
-      viewBtn.addEventListener('click', e => {
-        e.stopPropagation();
-        openCertModal(card);
-      });
-    }
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' && e.target === card) openCertModal(card);
+
+/* ========================================
+   SKILLS HOVER
+======================================== */
+
+const skills =
+    document.querySelectorAll(".skill");
+
+const skillDescription =
+    document.getElementById("skillDescription");
+
+
+skills.forEach(skill => {
+
+    skill.addEventListener("mouseenter", () => {
+
+        skillDescription.textContent =
+            skill.dataset.description;
+
     });
-  });
 
-  document.querySelectorAll('[data-close-cert]').forEach(el => {
-    el.addEventListener('click', closeCertModal);
-  });
+});
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && !certModal.hidden) closeCertModal();
-  });
+
+
+/* ========================================
+   PROJECT / GENERAL HOVER
+======================================== */
+
+
+/* ========================================
+   CERTIFICATE DATA
+======================================== */
+
+const certificates = {
+
+    "deloitte":
+        "certificates/deloitte-data-analytics.png",
+
+    "tata":
+        "certificates/tata-genai-data-analytics.png",
+
+    "sql-advanced":
+        "certificates/sql-advanced.png",
+
+    "sql-basic":
+        "certificates/sql-basic.png",
+
+    "generative-ai":
+        "certificates/generative-ai-foundations.png",
+
+    "power-bi":
+        "certificates/power-bi-beginners.png"
+
+};
+
+
+
+/* ========================================
+   CERTIFICATE MODAL
+======================================== */
+
+const modal =
+    document.getElementById("certificateModal");
+
+const modalClose =
+    document.getElementById("modalClose");
+
+const certificateImage =
+    document.getElementById("certificateImage");
+
+const fullSizeLink =
+    document.getElementById("fullSizeLink");
+
+
+function openCertificate(type) {
+
+    const imagePath =
+        certificates[type];
+
+    if (!imagePath) {
+
+        alert("Certificate file not found.");
+
+        return;
+
+    }
+
+    certificateImage.src =
+        imagePath;
+
+    fullSizeLink.href =
+        imagePath;
+
+    modal.classList.add("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closeCertificate() {
+
+    modal.classList.remove("open");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.style.overflow =
+        "";
+
+    setTimeout(() => {
+
+        certificateImage.src = "";
+
+    }, 300);
+
+}
+
+
+
+/* Buttons */
+
+document
+    .querySelectorAll(
+        ".view-certificate, .training-certificate"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                openCertificate(
+                    button.dataset.certificate
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* Close button */
+
+modalClose.addEventListener(
+    "click",
+    closeCertificate
+);
+
+
+
+/* Click outside */
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (event.target === modal) {
+
+            closeCertificate();
+
+        }
+
+    }
+);
+
+
+
+/* Escape key */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            modal.classList.contains("open")
+        ) {
+
+            closeCertificate();
+
+        }
+
+    }
+);
+
+
+
+/* ========================================
+   CERTIFICATE FILTERS
+======================================== */
+
+const filters =
+    document.querySelectorAll(".filter");
+
+const certificateCards =
+    document.querySelectorAll(".certificate-card");
+
+
+filters.forEach(filter => {
+
+    filter.addEventListener("click", () => {
+
+        filters.forEach(item => {
+
+            item.classList.remove("active");
+
+        });
+
+        filter.classList.add("active");
+
+        const selected =
+            filter.dataset.filter;
+
+
+        certificateCards.forEach(card => {
+
+            if (selected === "all") {
+
+                card.classList.remove("hidden");
+
+                return;
+
+            }
+
+
+            const categories =
+                card.dataset.category.split(" ");
+
+
+            if (categories.includes(selected)) {
+
+                card.classList.remove("hidden");
+
+            } else {
+
+                card.classList.add("hidden");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+/* ========================================
+   SUBTLE MOUSE PARALLAX
+======================================== */
+
+const heroName =
+    document.querySelector(".hero-name");
+
+
+document.addEventListener("mousemove", event => {
+
+    if (window.innerWidth < 900) return;
+
+    const x =
+        (event.clientX / window.innerWidth - 0.5) * 8;
+
+    const y =
+        (event.clientY / window.innerHeight - 0.5) * 8;
+
+
+    heroName.style.transform =
+        `translate(${x}px, ${y}px)`;
+
 });
