@@ -1,7 +1,3 @@
-/* ==========================================================================
-   CERTIFICATES CONFIGURATION
-   Easily customize image paths here if needed.
-   ========================================================================== */
 const certificatesConfig = {
   deloitte: {
     title: "Data Analytics Job Simulation",
