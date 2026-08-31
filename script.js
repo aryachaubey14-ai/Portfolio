@@ -1,437 +1,86 @@
-/* =====================================================
-   CERTIFICATE CONFIGURATION
+const root = document.documentElement;
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+const scrollProgress = document.getElementById("scrollProgress");
+const year = document.getElementById("year");
 
-   IMPORTANT:
-   These image files must be in the SAME folder as
-   index.html OR change the paths below.
-===================================================== */
+const savedTheme = localStorage.getItem("portfolio-theme");
+const preferredDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-const certificates = {
-
-  deloitte: {
-    title: "Data Analytics Job Simulation",
-    issuer: "Deloitte · Forage",
-    image: "deloitte-data-analytics.png"
-  },
-
-  tata: {
-    title: "GenAI Powered Data Analytics Job Simulation",
-    issuer: "Tata · Forage",
-    image: "tata-genai-data-analytics.png"
-  },
-
-  sqlAdvanced: {
-    title: "SQL Advanced Certificate",
-    issuer: "HackerRank",
-    image: "sql-advanced.png"
-  },
-
-  sqlBasic: {
-    title: "SQL Basic Certificate",
-    issuer: "HackerRank",
-    image: "sql-basic.png"
-  },
-
-  generativeAI: {
-    title: "Generative AI Foundations",
-    issuer: "upGrad / Microsoft",
-    image: "generative-ai-foundations.png"
-  },
-
-  powerBI: {
-    title: "Power BI for Beginners",
-    issuer: "Simplilearn / Microsoft",
-    image: "power-bi-beginners.png"
-  }
-
-};
-
-
-/* =====================================================
-   MOBILE NAVIGATION
-===================================================== */
-
-const menuBtn = document.getElementById("menuBtn");
-const navMenu = document.getElementById("navMenu");
-
-if (menuBtn) {
-
-  menuBtn.addEventListener("click", () => {
-
-    navMenu.classList.toggle("open");
-
-  });
-
+function setTheme(theme) {
+  root.setAttribute("data-theme", theme);
+  localStorage.setItem("portfolio-theme", theme);
+  themeIcon.textContent = theme === "dark" ? "☼" : "◐";
+  themeToggle.setAttribute(
+    "aria-label",
+    theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+  );
 }
 
+setTheme(savedTheme || (preferredDark ? "dark" : "light"));
 
-document.querySelectorAll("nav a").forEach(link => {
+themeToggle.addEventListener("click", () => {
+  const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  setTheme(nextTheme);
+});
 
+menuToggle.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+});
+
+navLinks.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
-
-    navMenu.classList.remove("open");
-
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
   });
-
 });
 
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? (scrollTop / scrollable) * 100 : 0;
+  scrollProgress.style.width = `${progress}%`;
+}
 
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+updateScrollProgress();
 
-const revealElements = document.querySelectorAll(".reveal");
+const revealItems = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
 
-  entries => {
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("visible"));
+}
 
-    entries.forEach(entry => {
+year.textContent = new Date().getFullYear();
 
-      if (entry.isIntersecting) {
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const id = link.getAttribute("href");
+    if (id === "#") return;
 
-        entry.target.classList.add("visible");
+    const target = document.querySelector(id);
+    if (!target) return;
 
-        observer.unobserve(entry.target);
-
-      }
-
-    });
-
-  },
-
-  {
-    threshold: 0.12
-  }
-
-);
-
-
-revealElements.forEach(element => {
-
-  observer.observe(element);
-
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 });
-
-
-/* =====================================================
-   CERTIFICATE MODAL
-===================================================== */
-
-const modal = document.getElementById("certificateModal");
-
-const modalClose =
-  document.getElementById("modalClose");
-
-const modalTitle =
-  document.getElementById("modalTitle");
-
-const modalIssuer =
-  document.getElementById("modalIssuer");
-
-const certificateImage =
-  document.getElementById("certificateImage");
-
-const openFull =
-  document.getElementById("openFull");
-
-const imageError =
-  document.getElementById("imageError");
-
-
-function openCertificate(key) {
-
-  const certificate = certificates[key];
-
-  if (!certificate) {
-
-    console.error(
-      "Certificate configuration not found:",
-      key
-    );
-
-    return;
-
-  }
-
-
-  modalTitle.textContent =
-    certificate.title;
-
-  modalIssuer.textContent =
-    certificate.issuer;
-
-
-  certificateImage.style.display = "block";
-
-  imageError.style.display = "none";
-
-
-  certificateImage.src =
-    certificate.image;
-
-  certificateImage.alt =
-    certificate.title;
-
-
-  openFull.href =
-    certificate.image;
-
-
-  modal.classList.add("open");
-
-  document.body.style.overflow = "hidden";
-
-}
-
-
-function closeCertificate() {
-
-  modal.classList.remove("open");
-
-  document.body.style.overflow = "";
-
-}
-
-
-/* =====================================================
-   CERTIFICATE BUTTONS
-===================================================== */
-
-document
-  .querySelectorAll("[data-certificate]")
-  .forEach(button => {
-
-    button.addEventListener("click", event => {
-
-      event.preventDefault();
-
-      const key =
-        button.dataset.certificate;
-
-      openCertificate(key);
-
-    });
-
-  });
-
-
-/* =====================================================
-   IMAGE ERROR HANDLING
-===================================================== */
-
-certificateImage.addEventListener(
-  "error",
-  () => {
-
-    certificateImage.style.display = "none";
-
-    imageError.style.display = "block";
-
-  }
-);
-
-
-/* =====================================================
-   CLOSE MODAL
-===================================================== */
-
-modalClose.addEventListener(
-  "click",
-  closeCertificate
-);
-
-
-modal.addEventListener(
-  "click",
-  event => {
-
-    if (event.target === modal) {
-
-      closeCertificate();
-
-    }
-
-  }
-);
-
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "Escape" &&
-      modal.classList.contains("open")
-    ) {
-
-      closeCertificate();
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   BACKGROUND PARTICLES
-===================================================== */
-
-const canvas =
-  document.getElementById("particles");
-
-const ctx =
-  canvas.getContext("2d");
-
-
-let particles = [];
-
-let width;
-let height;
-
-
-function resizeCanvas() {
-
-  width =
-    canvas.width =
-    window.innerWidth;
-
-  height =
-    canvas.height =
-    window.innerHeight;
-
-}
-
-
-resizeCanvas();
-
-window.addEventListener(
-  "resize",
-  resizeCanvas
-);
-
-
-/* Create particles */
-
-for (let i = 0; i < 65; i++) {
-
-  particles.push({
-
-    x: Math.random() * window.innerWidth,
-
-    y: Math.random() * window.innerHeight,
-
-    size: Math.random() * 1.8 + .4,
-
-    speedX:
-      (Math.random() - .5) * .25,
-
-    speedY:
-      (Math.random() - .5) * .25,
-
-    opacity:
-      Math.random() * .6 + .15
-
-  });
-
-}
-
-
-/* Animate particles */
-
-function animateParticles() {
-
-  ctx.clearRect(
-    0,
-    0,
-    width,
-    height
-  );
-
-
-  particles.forEach(particle => {
-
-    particle.x +=
-      particle.speedX;
-
-    particle.y +=
-      particle.speedY;
-
-
-    /* Wrap around */
-
-    if (particle.x < 0)
-      particle.x = width;
-
-    if (particle.x > width)
-      particle.x = 0;
-
-    if (particle.y < 0)
-      particle.y = height;
-
-    if (particle.y > height)
-      particle.y = 0;
-
-
-    ctx.beginPath();
-
-    ctx.arc(
-      particle.x,
-      particle.y,
-      particle.size,
-      0,
-      Math.PI * 2
-    );
-
-
-    ctx.fillStyle =
-      `rgba(0,217,255,${particle.opacity})`;
-
-    ctx.fill();
-
-  });
-
-
-  requestAnimationFrame(
-    animateParticles
-  );
-
-}
-
-
-animateParticles();
-
-
-/* =====================================================
-   FIGMA LINK
-===================================================== */
-
-/*
-   Replace the # in index.html with your actual
-   Figma project link.
-
-   Example:
-
-   https://www.figma.com/design/...
-*/
-
-const figmaLink =
-  document.getElementById("figmaLink");
-
-
-figmaLink.addEventListener(
-  "click",
-  event => {
-
-    if (figmaLink.getAttribute("href") === "#") {
-
-      event.preventDefault();
-
-      alert(
-        "Add your Figma project link in index.html."
-      );
-
-    }
-
-  }
-);
