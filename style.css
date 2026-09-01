@@ -2087,3 +2087,47 @@ font-size: 0.85rem;
 padding: 9px 17px;
 font-size: 0.95rem;
 }
+
+
+/* CONTACT BUTTONS - MEDIUM SIZE */
+
+.contact-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+
+    border: 1px solid currentColor;
+    border-radius: 10px;
+
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Gmail */
+.email-btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+}
+
+/* GitHub and LinkedIn */
+.github-btn,
+.linkedin-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+}
