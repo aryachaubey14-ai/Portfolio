@@ -2041,3 +2041,49 @@ nav a {
     height: 24px;
     font-size: 24px;
 }
+
+/* CONTACT BUTTONS */
+
+.contact-buttons {
+display: flex;
+align-items: center;
+gap: 12px;
+flex-wrap: wrap;
+margin-top: 24px;
+}
+
+.contact-btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+
+```
+padding: 9px 16px;
+font-size: 0.9rem;
+font-weight: 600;
+
+border: 1px solid currentColor;
+border-radius: 8px;
+
+text-decoration: none;
+transition: 0.3s ease;
+```
+
+}
+
+.contact-btn:hover {
+transform: translateY(-3px);
+}
+
+/* Keep Gmail slightly compact */
+.email-btn {
+padding: 8px 14px;
+font-size: 0.85rem;
+}
+
+/* Make GitHub and LinkedIn slightly more visible */
+.github-btn,
+.linkedin-btn {
+padding: 9px 17px;
+font-size: 0.95rem;
+}
