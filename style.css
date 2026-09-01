@@ -2011,3 +2011,33 @@ p {
 nav a {
     font-size: 0.95rem;
 }
+
+/* Gmail ko compact button banane ke liye */
+.gmail-btn,
+.email-btn {
+    font-size: 0.85rem;
+    padding: 8px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+/* GitHub aur LinkedIn ko clearly visible banane ke liye */
+.github-btn,
+.linkedin-btn,
+.social-link {
+    font-size: 1.05rem;
+}
+
+/* Agar icons use ho rahe hain */
+.github-btn i,
+.linkedin-btn i,
+.social-link i,
+.github-btn svg,
+.linkedin-btn svg,
+.social-link svg {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+}
