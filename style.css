@@ -1975,3 +1975,39 @@ footer {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+/* Main hero heading */
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
+}
+
+/* Hero description */
+.hero-description,
+.hero p {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Section headings */
+.section-title,
+section h2 {
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+/* Project / card titles */
+.project-title,
+.card h3,
+h3 {
+    font-size: 1.2rem;
+}
+
+/* Normal body text */
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav a {
+    font-size: 0.95rem;
+}
