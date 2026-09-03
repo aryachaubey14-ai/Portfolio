@@ -3112,3 +3112,111 @@ main,
     }
 
 }
+/* ================================
+   PROJECTS — EXACT 2 x 2 ORDER
+   ================================ */
+
+.projects-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    direction: ltr !important;
+    width: 100% !important;
+}
+
+.project-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.project-card.featured {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+}
+
+/* Vertical divider */
+.project-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+/* Horizontal divider */
+.project-card:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* ================================
+   EXPERIENCE — SEPARATE SECTION
+   ================================ */
+
+.experience-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    direction: ltr !important;
+}
+
+.experience-card {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.experience-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+
+/* ================================
+   CERTIFICATIONS — SEPARATE SECTION
+   ================================ */
+
+.cert-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    direction: ltr !important;
+}
+
+
+/* ================================
+   ACHIEVEMENTS — SEPARATE SECTION
+   ================================ */
+
+.achievement-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    direction: ltr !important;
+}
+
+
+/* ================================
+   EDUCATION — SEPARATE SECTION
+   ================================ */
+
+.education-list {
+    display: block !important;
+}
+
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 900px) {
+
+    .projects-list,
+    .experience-list,
+    .cert-grid,
+    .achievement-grid {
+        display: block !important;
+    }
+
+    .project-card,
+    .experience-card {
+        border-right: none !important;
+    }
+}
