@@ -2790,3 +2790,325 @@ font-size: 0.95rem;
     }
 
 }
+
+/* =========================================================
+   FINAL PORTFOLIO LAYOUT
+   Each major topic gets its own full-width section.
+   Cards are arranged only inside their own topic.
+   ========================================================= */
+
+
+/* ---------- FORCE EVERY SECTION TO STACK VERTICALLY ---------- */
+
+main,
+.page,
+.sections,
+.portfolio-sections {
+    display: block !important;
+}
+
+.section {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    float: none !important;
+    clear: both !important;
+    position: relative;
+}
+
+
+/* Make sure content sections themselves never sit beside
+   another major section */
+
+.content-section {
+    display: block !important;
+    width: 100% !important;
+    grid-template-columns: none !important;
+    clear: both !important;
+}
+
+
+/* Keep the section number/title at the top */
+
+.content-section > .section-label,
+.content-section > .section-number {
+    display: block;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   PROJECTS
+   4 project cards → 2 × 2
+   ========================================================= */
+
+.projects-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    border-top: 1px solid var(--line);
+}
+
+.project-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 32px !important;
+    box-sizing: border-box;
+}
+
+.project-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+.project-card:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+}
+
+
+/* Remove any layout that puts project content beside
+   another major section */
+
+.project-content {
+    display: block !important;
+    width: 100% !important;
+}
+
+.project-content h3 {
+    font-size: 27px;
+    margin-bottom: 12px;
+}
+
+.project-content p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+   Completely separate section
+   ========================================================= */
+
+.experience-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    border-top: 1px solid var(--line);
+}
+
+.experience-card {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 32px !important;
+    box-sizing: border-box;
+}
+
+.experience-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   CERTIFICATIONS
+   Completely separate section
+   6 certificates → 2 × 3
+   ========================================================= */
+
+.cert-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+}
+
+.certificate-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 180px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   ACHIEVEMENTS
+   Completely separate section
+   ========================================================= */
+
+.achievement-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+}
+
+.achievement-grid article {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   EDUCATION
+   Separate section too
+   ========================================================= */
+
+.education-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    width: 100% !important;
+}
+
+.education-card {
+    display: block !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+}
+
+.education-card:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+
+/* =========================================================
+   LANDSCAPE SCREENSHOT MODE
+   Designed for laptop screenshots such as:
+   1366 × 768
+   1920 × 1080
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .section {
+        min-height: calc(100vh - 70px);
+        box-sizing: border-box;
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .content-section {
+        min-height: calc(100vh - 140px);
+    }
+
+
+    /* Projects */
+
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .project-card {
+        padding: 28px 32px !important;
+    }
+
+
+    /* Experience */
+
+    .experience-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .experience-card {
+        padding: 30px 32px !important;
+    }
+
+
+    /* Certifications */
+
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .certificate-card {
+        min-height: 170px;
+        padding: 25px !important;
+    }
+
+
+    /* Achievements */
+
+    .achievement-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .achievement-grid article {
+        padding: 28px 30px !important;
+    }
+
+
+    /* Education */
+
+    .education-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .education-card {
+        padding: 28px 30px !important;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP / SMALL LANDSCAPE
+   ========================================================= */
+
+@media (min-width: 901px) and (max-height: 800px) {
+
+    .section {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .content-section {
+        min-height: auto;
+    }
+
+    .project-card {
+        padding: 22px 26px !important;
+    }
+
+    .experience-card {
+        padding: 22px 26px !important;
+    }
+
+    .certificate-card {
+        min-height: 145px;
+        padding: 20px !important;
+    }
+
+    .achievement-grid article {
+        padding: 22px 25px !important;
+    }
+
+    .education-card {
+        padding: 22px 25px !important;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Keep everything stacked normally
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .projects-list,
+    .experience-list,
+    .cert-grid,
+    .achievement-grid,
+    .education-list {
+        display: block !important;
+    }
+
+    .project-card,
+    .experience-card,
+    .certificate-card,
+    .achievement-grid article,
+    .education-card {
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--line);
+    }
+
+}
