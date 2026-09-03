@@ -2209,3 +2209,113 @@ footer {
         min-height: auto;
     }
 }
+/* =====================================================
+   PROJECTS — FINAL
+   ===================================================== */
+
+@media (min-width: 901px) {
+
+    .projects-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+
+        /* FIXED ORDER */
+        grid-template-areas:
+            "study snake"
+            "expense hospital" !important;
+
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    /* STUDY SANCTUARY */
+    .projects-list .project-card:nth-child(1) {
+        grid-area: study !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* SNAKE GAME */
+    .projects-list .project-card:nth-child(2) {
+        grid-area: snake !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* EXPENSE TRACKER */
+    .projects-list .project-card:nth-child(3) {
+        grid-area: expense !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* HOSPITAL MANAGEMENT */
+    .projects-list .project-card:nth-child(4) {
+        grid-area: hospital !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* REMOVE ANY OLD FEATURED POSITIONING */
+    .projects-list .project-card.featured {
+        grid-area: study !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+    }
+
+
+    /* CARD DIVIDERS */
+
+    .projects-list .project-card:nth-child(1),
+    .projects-list .project-card:nth-child(3) {
+        border-right: 1px solid var(--line) !important;
+    }
+
+    .projects-list .project-card:nth-child(1),
+    .projects-list .project-card:nth-child(2) {
+        border-bottom: 1px solid var(--line) !important;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+    .projects-list {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .projects-list .project-card {
+        grid-area: auto !important;
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        border-right: none !important;
+    }
+}
