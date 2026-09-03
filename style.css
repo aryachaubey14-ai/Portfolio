@@ -2494,3 +2494,299 @@ font-size: 0.95rem;
     }
 
 }
+
+/* =========================================================
+   DESKTOP LANDSCAPE LAYOUT
+   Keeps original colors, content & section order
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    /* ---------- GENERAL ---------- */
+
+    :root {
+        --max-width: 1400px;
+    }
+
+    .section {
+        width: min(calc(100% - 70px), var(--max-width));
+        padding: 90px 0;
+    }
+
+    .content-section {
+        grid-template-columns: 85px 1fr;
+        gap: 35px;
+    }
+
+    .section-content {
+        max-width: none;
+    }
+
+
+    /* =====================================================
+       ABOUT
+       ===================================================== */
+
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 55px;
+        margin: 40px 0 55px;
+    }
+
+    .about-grid p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       SKILLS
+       All skills remain in the same order
+       ===================================================== */
+
+    .skills-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid var(--line);
+    }
+
+    .skill-row {
+        grid-template-columns: 45px 1fr;
+        gap: 18px;
+        padding: 24px 22px;
+    }
+
+    .skill-row:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .skill-row h3 {
+        font-size: 19px;
+        margin-bottom: 7px;
+    }
+
+    .skill-row p {
+        font-size: 13px;
+        line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       PROJECTS
+       Projects remain in original order
+       ===================================================== */
+
+    .projects-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid var(--line);
+    }
+
+    .project-card {
+        padding: 28px 25px;
+        min-width: 0;
+    }
+
+    .project-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .project-meta {
+        margin-bottom: 22px;
+    }
+
+    .project-content {
+        display: block;
+    }
+
+    .project-content h3 {
+        font-size: 27px;
+        margin-bottom: 12px;
+    }
+
+    .project-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .project-details {
+        margin-top: 25px;
+        gap: 20px;
+    }
+
+
+    /* =====================================================
+       EXPERIENCE
+       ===================================================== */
+
+    .experience-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid var(--line);
+    }
+
+    .experience-card {
+        display: block;
+        padding: 28px 25px;
+        min-width: 0;
+    }
+
+    .experience-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .experience-card h3 {
+        font-size: 21px;
+        margin: 12px 0;
+    }
+
+    .experience-card p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       CERTIFICATIONS
+       ===================================================== */
+
+    .cert-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .certificate-card {
+        min-height: 165px;
+        padding: 24px;
+    }
+
+    .certificate-card h3 {
+        font-size: 19px;
+        margin: 27px 0 8px;
+    }
+
+    .certificate-card p {
+        font-size: 12px;
+    }
+
+
+    /* =====================================================
+       ACHIEVEMENTS
+       ===================================================== */
+
+    .achievement-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .achievement-grid article {
+        padding: 28px 0;
+    }
+
+    .achievement-number {
+        font-size: 65px;
+        margin-bottom: 12px;
+    }
+
+    .achievement-grid h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .achievement-grid p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       EDUCATION
+       ===================================================== */
+
+    .education-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-top: 1px solid var(--line);
+    }
+
+    .education-card {
+        display: block;
+        padding: 28px 25px;
+        min-width: 0;
+    }
+
+    .education-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .education-card h3 {
+        font-size: 21px;
+        margin: 10px 0 8px;
+    }
+
+
+    /* =====================================================
+       CONTACT
+       ===================================================== */
+
+    .contact-section {
+        padding-bottom: 100px;
+    }
+
+    .contact-section > p {
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 30px;
+    }
+
+    .email-link {
+        font-size: clamp(24px, 3vw, 45px);
+    }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .skill-row,
+    .project-card,
+    .experience-card,
+    .education-card {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Do NOT use the landscape layout on phones/tablets
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .skills-list,
+    .projects-list,
+    .experience-list,
+    .education-list {
+        display: block;
+    }
+
+    .skill-row:nth-child(odd),
+    .project-card:nth-child(odd),
+    .experience-card:nth-child(odd),
+    .education-card:nth-child(odd) {
+        border-right: none;
+    }
+
+}
