@@ -3220,3 +3220,84 @@ main,
         border-right: none !important;
     }
 }
+/* =========================================
+   PROJECT CARDS ONLY
+   ========================================= */
+
+@media (min-width: 901px) {
+
+    .projects-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100%;
+    }
+
+    .project-card {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .project-card.featured {
+        grid-column: auto !important;
+    }
+
+    .project-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100%;
+    }
+
+    .experience-card {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .experience-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+
+    /* CERTIFICATIONS */
+
+    .cert-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100%;
+    }
+
+
+    /* ACHIEVEMENTS */
+
+    .achievement-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        width: 100%;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+    .projects-list,
+    .experience-list,
+    .cert-grid,
+    .achievement-grid {
+        display: block !important;
+    }
+
+    .project-card,
+    .experience-card {
+        border-right: none !important;
+    }
+}
