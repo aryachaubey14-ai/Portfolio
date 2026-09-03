@@ -2131,3 +2131,366 @@ font-size: 0.95rem;
     padding: 12px 24px;
     font-size: 1rem;
 }
+
+/* =========================================================
+   LANDSCAPE PORTFOLIO / SCREENSHOT OPTIMIZATION
+   Keeps original colors + order
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    /* -----------------------------------------
+       MAIN CONTAINER
+       ----------------------------------------- */
+
+    :root {
+        --max-width: 1400px;
+    }
+
+    .section {
+        width: min(calc(100% - 60px), var(--max-width));
+        padding: 85px 0;
+    }
+
+    .content-section {
+        grid-template-columns: 90px 1fr;
+        gap: 35px;
+    }
+
+    .section-content {
+        max-width: none;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+       ----------------------------------------- */
+
+    .hero {
+        min-height: 100vh;
+        padding-top: 110px;
+    }
+
+    .hero-title {
+        font-size: clamp(70px, 10vw, 150px);
+        margin: 45px 0;
+    }
+
+    .hero-bottom {
+        gap: 35px;
+    }
+
+    .hero-description {
+        max-width: 600px;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .hero-footer {
+        margin-top: 50px;
+    }
+
+
+    /* -----------------------------------------
+       ABOUT
+       ----------------------------------------- */
+
+    .about-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        margin: 35px 0 45px;
+    }
+
+    .about-grid p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-card {
+        padding: 22px 20px;
+    }
+
+    .stat-number {
+        font-size: 34px;
+    }
+
+
+    /* -----------------------------------------
+       SKILLS — 2 COLUMNS
+       ----------------------------------------- */
+
+    .skills-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        border-top: 1px solid var(--line);
+    }
+
+    .skill-row {
+        grid-template-columns: 45px 1fr;
+        gap: 18px;
+        padding: 22px 20px;
+    }
+
+    .skill-row:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .skill-row h3 {
+        font-size: 18px;
+        margin-bottom: 7px;
+    }
+
+    .skill-row p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* -----------------------------------------
+       PROJECTS — 2 PROJECTS SIDE BY SIDE
+       ----------------------------------------- */
+
+    .projects-heading {
+        margin-bottom: 30px;
+    }
+
+    .projects-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+    }
+
+    .project-card {
+        padding: 25px;
+        min-width: 0;
+    }
+
+    .project-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .project-meta {
+        margin-bottom: 20px;
+    }
+
+    .project-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .project-content h3 {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .project-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .project-details {
+        gap: 20px;
+    }
+
+
+    /* -----------------------------------------
+       EXPERIENCE — SIDE BY SIDE
+       ----------------------------------------- */
+
+    .experience-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+    }
+
+    .experience-card {
+        display: block;
+        padding: 28px 25px;
+        min-width: 0;
+    }
+
+    .experience-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .experience-card h3 {
+        font-size: 21px;
+        margin: 12px 0;
+    }
+
+    .experience-card p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* -----------------------------------------
+       CERTIFICATIONS — 2 COLUMNS
+       ----------------------------------------- */
+
+    .cert-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .certificate-card {
+        min-height: 155px;
+        padding: 23px;
+    }
+
+    .certificate-card h3 {
+        font-size: 18px;
+        margin: 25px 0 7px;
+    }
+
+    .certificate-card p {
+        font-size: 12px;
+    }
+
+
+    /* -----------------------------------------
+       ACHIEVEMENTS — 2 COLUMNS
+       ----------------------------------------- */
+
+    .achievement-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+
+    .achievement-grid article {
+        padding: 25px 0;
+    }
+
+    .achievement-number {
+        font-size: 60px;
+        margin-bottom: 12px;
+    }
+
+    .achievement-grid h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .achievement-grid p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    /* -----------------------------------------
+       EDUCATION — SIDE BY SIDE
+       ----------------------------------------- */
+
+    .education-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        border-top: 1px solid var(--line);
+    }
+
+    .education-card {
+        display: block;
+        padding: 28px 25px;
+        min-width: 0;
+    }
+
+    .education-card:nth-child(odd) {
+        border-right: 1px solid var(--line);
+    }
+
+    .education-card h3 {
+        font-size: 21px;
+        margin: 10px 0 8px;
+    }
+
+
+    /* -----------------------------------------
+       CONTACT
+       ----------------------------------------- */
+
+    .contact-section {
+        padding-bottom: 90px;
+    }
+
+    .contact-section > p {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .email-link {
+        font-size: clamp(23px, 3vw, 42px);
+    }
+
+    .social-links {
+        margin-top: 25px;
+    }
+
+
+    /* -----------------------------------------
+       GENERAL TYPOGRAPHY
+       ----------------------------------------- */
+
+    .section-content h2,
+    .contact-section h2 {
+        font-size: clamp(38px, 4vw, 60px);
+        margin-bottom: 20px;
+    }
+
+    .section-intro {
+        font-size: 14px;
+        line-height: 1.6;
+        max-width: 700px;
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA WIDE SCREEN
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .content-section {
+        grid-template-columns: 100px 1fr;
+        gap: 45px;
+    }
+
+    .project-card,
+    .experience-card,
+    .education-card {
+        padding: 25px 30px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — KEEP ORIGINAL RESPONSIVE BEHAVIOUR
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .skills-list,
+    .projects-list,
+    .experience-list,
+    .education-list {
+        display: block;
+    }
+
+    .skill-row:nth-child(odd),
+    .project-card:nth-child(odd),
+    .experience-card:nth-child(odd),
+    .education-card:nth-child(odd) {
+        border-right: none;
+    }
+
+}
