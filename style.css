@@ -2073,3 +2073,139 @@ footer {
             0.01ms !important;
     }
 }
+
+/* =========================================================
+   PROJECTS — FINAL 2 × 2 GRID
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .projects-list {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: auto auto !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border-top: 1px solid var(--line);
+    }
+
+
+    /* -----------------------------------------
+       PROJECT 01 — STUDY SANCTUARY
+       ----------------------------------------- */
+
+    .projects-list .project-card:nth-child(1) {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       PROJECT 02 — SNAKE GAME
+       ----------------------------------------- */
+
+    .projects-list .project-card:nth-child(2) {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       PROJECT 03 — EXPENSE TRACKER
+       ----------------------------------------- */
+
+    .projects-list .project-card:nth-child(3) {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       PROJECT 04 — HOSPITAL MANAGEMENT
+       ----------------------------------------- */
+
+    .projects-list .project-card:nth-child(4) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       REMOVE OLD FEATURED POSITIONING
+       ----------------------------------------- */
+
+    .projects-list .project-card.featured {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* -----------------------------------------
+       CARD BORDERS
+       ----------------------------------------- */
+
+    .projects-list .project-card:nth-child(1),
+    .projects-list .project-card:nth-child(2) {
+        border-bottom: 1px solid var(--line);
+    }
+
+    .projects-list .project-card:nth-child(1),
+    .projects-list .project-card:nth-child(3) {
+        border-right: 1px solid var(--line);
+    }
+
+
+    /* -----------------------------------------
+       CARD SPACING
+       ----------------------------------------- */
+
+    .projects-list .project-card {
+        min-height: 270px;
+
+        padding: 28px 30px !important;
+
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — ONE BELOW ANOTHER
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .projects-list {
+        display: block !important;
+    }
+
+    .projects-list .project-card {
+        display: block !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+        border-right: none !important;
+
+        min-height: auto;
+    }
+}
